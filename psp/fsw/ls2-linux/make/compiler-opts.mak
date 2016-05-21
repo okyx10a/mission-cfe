@@ -1,19 +1,24 @@
 ##############################################################################
-## compiler-opts.mak - compiler definitions and options for building the cFE 
+## compiler-opts.mak - compiler definitions and options for building the cFE
 ##
-## Target: beaglebone -- modified from x86 Linux version by S. Dorsey 2015
+## Target: linuxstamp2 -- modified from beaglebone version by V. Chu,
+##												H. Chesser, and E. Bhuiyan 2015
+##				 beaglebone  -- modified from x86 Linux version by S. Dorsey 2015
 ##
 ## Modifications:
 ##
 ###############################################################################
 
-## 
+# Cross Compiler tool prefix
+CCPREFIX=arm-unknown-linux-gnueabi
+
+##
 ## Warning Level Configuration
 ##
 # WARNINGS=-Wall -ansi -pedantic -Wstrict-prototypes
 WARNINGS=-Wall -Wstrict-prototypes
 
-## 
+##
 ## Host OS Include Paths ( be sure to put the -I switch in front of each directory )
 ##
 SYSINCS=
@@ -21,25 +26,25 @@ SYSINCS=
 ##
 ## Target Defines for the OS, Hardware Arch, etc..
 ##
-#TARGET_DEFS=-D__ix86__ -D_ix86_ -D_LINUX_OS_  -D$(OS) -DX86PC -DBUILD=$(BUILD) -D_REENTRANT -D _EMBED_  
-TARGET_DEFS= -D$(OS) -D_LINUX_OS_ -DBUILD=$(BUILD) -D_REENTRANT -D _EMBED_  
+#TARGET_DEFS=-D__ix86__ -D_ix86_ -D_LINUX_OS_  -D$(OS) -DX86PC -DBUILD=$(BUILD) -D_REENTRANT -D _EMBED_
+TARGET_DEFS= -D$(OS) -D_LINUX_OS_ -DBUILD=$(BUILD) -D_REENTRANT -D _EMBED_
 
-## 
+##
 ## Endian Defines
 ##
-ENDIAN_DEFS=-D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER 
+ENDIAN_DEFS=-D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER
 
 ##
 ## Compiler Architecture Switches
-## 
+##
 #ARCH_OPTS = -m32
-ARCH_OPTS =  -fPIC
+#ARCH_OPTS =  -fPIC
 
 ##
-## Application specific compiler switches 
+## Application specific compiler switches
 ##
 ifeq ($(BUILD_TYPE),CFE_APP)
-   APP_COPTS= 
+   APP_COPTS=
    APP_ASOPTS=
 else
    APP_COPTS=
@@ -49,14 +54,14 @@ endif
 ##
 ## Extra Cflags for Assembly listings, etc.
 ##
-LIST_OPTS = 
+LIST_OPTS =
 
 ##
 ## gcc options for dependancy generation
-## 
+##
 COPTS_D = $(APP_COPTS) $(ENDIAN_DEFS) $(TARGET_DEFS) $(ARCH_OPTS) $(SYSINCS) $(WARNINGS)
 
-## 
+##
 ## General gcc options that apply to compiling and dependency generation.
 ##
 COPTS=$(LIST_OPTS) $(COPTS_D)
@@ -64,13 +69,13 @@ COPTS=$(LIST_OPTS) $(COPTS_D)
 ##
 ## Extra defines and switches for assembly code
 ##
-ASOPTS = $(APP_ASOPTS) -P -xassembler-with-cpp 
+ASOPTS = $(APP_ASOPTS) -P -xassembler-with-cpp
 
 ##---------------------------------------------------------
 ## Application file extention type
 ## This is the defined application extention.
 ## Known extentions: Mac OS X: .bundle, Linux: .so, RTEMS:
-##   .s3r, vxWorks: .o etc.. 
+##   .s3r, vxWorks: .o etc..
 ##---------------------------------------------------------
 APP_EXT = so
 
@@ -87,13 +92,13 @@ CP=cp
 ##
 ## Compiler tools
 ##
-COMPILER=gcc
-ASSEMBLER=as
-#LINKER=ld -melf_i386 
-LINKER=ld 
-AR=ar
-NM=nm
-SIZE=size
-OBJCOPY=objcopy
-OBJDUMP=objdump
+COMPILER=$(CCPREFIX)-gcc
+ASSEMBLER=$(CCPREFIX)-as
+#LINKER=ld -melf_i386
+LINKER=$(CCPREFIX)-ld
+AR=$(CCPREFIX)-ar
+NM=$(CCPREFIX)-nm
+SIZE=$(CCPREFIX)-size
+OBJCOPY=$(CCPREFIX)-objcopy
+OBJDUMP=$(CCPREFIX)-objdump
 TABLE_BIN = elf2cfetbl

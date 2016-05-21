@@ -24,9 +24,9 @@
 ## Operating System
 ## OS = The operating system selected for the Abstraction implementation
 ##---------------------------------------------------------
-OS = vxworks6
+OS = posix
 
 ##---------------------------------------------------------
 ## PSP -- CFE Platform Support Package
 ##---------------------------------------------------------
-PSP = mcp750-vxworks6.4
+PSP = ls2-linux
