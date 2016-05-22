@@ -10,11 +10,25 @@
 #		this Makefile.
 #------------------------------------------------------------
 
+#
+# Build Process:
+# 	1. Sets variables
+# 	2. Backs up the build/cpuX and build/mission_inc directories
+#		3. Makes config and makes (build)
+#		4. Moves the binary output to the bin directory
+#		5. Deletes the build/cpuX and build/mission_inc directories
+#		6. Restores the original build/cpuX and build/mission_inc directories
+#
 all ::
 	bash -c "source ./setvars.sh; \
+	cp -av build/$(BUILD_CPU) build/$(BUILD_CPU)~; \
+	cp -av build/mission_inc build/mission_inc~; \
 	$(MAKE) -C build/$(BUILD_CPU) config; \
 	$(MAKE) -C build/$(BUILD_CPU); \
-	mv build/$(BUILD_CPU) $(BUILD_OUTPUT)"
+	mv -v build/$(BUILD_CPU)/exe/core-linux.bin bin/core-linux.bin; \
+	rm -vrf build/$(BUILD_CPU) build/mission_inc; \
+	mv -v build/$(BUILD_CPU)~ build/$(BUILD_CPU); \
+	mv -v build/mission_inc~ build/mission_inc;"
 
 clean ::
 	$(MAKE) -C build clean
