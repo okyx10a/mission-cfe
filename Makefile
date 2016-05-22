@@ -11,10 +11,10 @@
 #------------------------------------------------------------
 
 all ::
-  bash -c "source ./setvars.sh; \
-  $(MAKE) -C build/$(BUILD_CPU) config; \
-  $(MAKE) -C build/$(BUILD_CPU); \
-  mv build/$(BUILD_CPU) $(BUILD_OUTPUT)"
+	bash -c "source ./setvars.sh; \
+	$(MAKE) -C build/$(BUILD_CPU) config; \
+	$(MAKE) -C build/$(BUILD_CPU); \
+	mv build/$(BUILD_CPU) $(BUILD_OUTPUT)"
 
 clean ::
-  $(MAKE) -C build clean
+	$(MAKE) -C build clean
