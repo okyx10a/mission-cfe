@@ -5,7 +5,6 @@
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.cross.exe.release.396701005" moduleId="org.eclipse.cdt.core.settings" name="Release">
 				<macros>
 					<stringMacro name="BUILD_CPU" type="VALUE_TEXT" value="cpu2"/>
-					<stringMacro name="BUILD_OUTPUT" type="VALUE_TEXT" value="${build_project}/bin/core-linux.bin"/>
 				</macros>
 				<externalSettings/>
 				<extensions>
@@ -55,7 +54,6 @@
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.cross.exe.debug.1481447366.1083236334" moduleId="org.eclipse.cdt.core.settings" name="ls2-linux Debug">
 				<macros>
 					<stringMacro name="BUILD_CPU" type="VALUE_TEXT" value="cpu2"/>
-					<stringMacro name="BUILD_OUTPUT" type="VALUE_TEXT" value="${build_project}/bin/core-linux.bin"/>
 				</macros>
 				<externalSettings/>
 				<extensions>
@@ -105,7 +103,6 @@
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.cross.exe.debug.1481447366.1083236334.772963770" moduleId="org.eclipse.cdt.core.settings" name="pc-linux Debug">
 				<macros>
 					<stringMacro name="BUILD_CPU" type="VALUE_TEXT" value="cpu1"/>
-					<stringMacro name="BUILD_OUTPUT" type="VALUE_TEXT" value="${build_project}/bin/core-linux.bin"/>
 				</macros>
 				<externalSettings/>
 				<extensions>
@@ -198,7 +195,7 @@
 		<buildTargets>
 			<target name="all" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
 				<buildCommand>make</buildCommand>
-				<buildArguments/>
+				<buildArguments>BUILD_CPU=${BUILD_CPU}</buildArguments>
 				<buildTarget>all</buildTarget>
 				<stopOnError>true</stopOnError>
 				<useDefaultCommand>true</useDefaultCommand>
