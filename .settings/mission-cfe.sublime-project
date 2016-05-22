@@ -1,0 +1,28 @@
+{
+  "folders": [
+    {
+      "path": "../../devops",
+      "folder_exclude_patterns": [
+        ".vagrant"
+      ],
+      "file_exclude_patterns": [
+        ".git*"
+      ],
+      "binary_file_patterns": [
+        "*.box"
+      ]
+    },
+    {
+      "path": "..",
+      "folder_exclude_patterns": [
+        ".settings",
+        "bin"
+      ],
+      "file_exclude_patterns": [
+        ".git*",
+        ".project",
+        ".cproject"
+      ]
+    }
+  ]
+}
