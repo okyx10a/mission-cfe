@@ -27,10 +27,18 @@
 
 
 /**
-  \page cpu1revhist CPU-2 Documentation Revision History
+  \page cpu2revhist CPU-2 Documentation Revision History
 
   \verbatim  
-  $Log: 
+  $Log: cpu2.dox  $
+  Revision 1.2 2009/04/17 13:44:18GMT-05:00 dkobe 
+  Corrected content to match all cpus
+  Revision 1.1 2009/04/17 14:29:43EDT dkobe 
+  Initial revision
+  Member added to project c:/MKSDATA/MKS-REPOSITORY/cfs_mission/build/cpu2/docs/dox_src/detailed_design/project.pj
+  Revision 1.1 2009/04/16 12:49:10EDT dkobe 
+  Initial revision
+  Member added to project c:/MKSDATA/MKS-REPOSITORY/cfs_mission/build/cpu2/docs/dox_src/users_guide/project.pj
   \endverbatim
   
 **/
