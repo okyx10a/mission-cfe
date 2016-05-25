@@ -25,7 +25,7 @@ all ::
 	cp -av build/mission_inc build/mission_inc~; \
 	$(MAKE) -C build/$(BUILD_CPU) config; \
 	$(MAKE) -C build/$(BUILD_CPU); \
-	mv -v build/$(BUILD_CPU)/exe/core-linux.bin bin/core-linux.bin; \
+	rm -vrf bin; mv -v build/$(BUILD_CPU)/exe bin; \
 	rm -vrf build/$(BUILD_CPU) build/mission_inc; \
 	mv -v build/$(BUILD_CPU)~ build/$(BUILD_CPU); \
 	mv -v build/mission_inc~ build/mission_inc;"
