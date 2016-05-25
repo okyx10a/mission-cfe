@@ -26,8 +26,14 @@ Additional documentation can be found in:
    This will create an Eclipse workspace in the parent directory.
 3. Connect to the machine via PuTTY and X11 (Xming) on `localhost:2222`
    using the credentials: username: `vagrant` and password: `vagrant`.
-4. In the remote, execute the command: `eclipse &` and when prompted
-   set the workspace to `/home/vagrant/vagrant_root`.
+4. In the remote terminal, execute the commands:
+   ```bash
+   cd workspace/mission-cfe/.settings
+   chmod +x mission-cfe.launch.sh
+   ./mission-cfe.launch.sh
+   ```
+5. In the remote terminal, execute the command: `eclipse &` and when
+   prompted set the workspace to `/home/vagrant/workspace`.
 
 ## Sources
 * http://opensource.gsfc.nasa.gov/projects/cfe/index.php

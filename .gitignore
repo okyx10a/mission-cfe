@@ -33,6 +33,7 @@
 
 # Project files
 *.sublime-workspace
+*.launch
 
 # Build Output
 bin/
