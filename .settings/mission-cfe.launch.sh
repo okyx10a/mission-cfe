@@ -36,7 +36,7 @@ cat - <<EOF> mission-cfe.launch
   <booleanAttribute key="org.eclipse.cdt.launch.remote.RemoteCDSFDebuggerTab.DEFAULTS_SET" value="true"/>
   <stringAttribute key="org.eclipse.debug.core.ATTR_GDBSERVER_COMMAND" value="gdbserver"/>
   <stringAttribute key="org.eclipse.debug.core.ATTR_GDBSERVER_PORT" value="2345"/>
-  <stringAttribute key="org.eclipse.debug.core.ATTR_PRERUN_CMDS" value="rm -fr /root/cfe; scp -r vagrant@$IP:/home/vagrant/workspace/mission-cfe/bin/exe /root/cfe; cd /root/cfe"/>
+  <stringAttribute key="org.eclipse.debug.core.ATTR_PRERUN_CMDS" value="rm -fr /root/cfe; scp -r vagrant@$IP:/home/vagrant/workspace/mission-cfe/bin /root/cfe; cd /root/cfe"/>
   <booleanAttribute key="org.eclipse.debug.core.ATTR_SKIP_DOWNLOAD_TO_TARGET" value="false"/>
   <stringAttribute key="org.eclipse.debug.core.ATTR_TARGET_PATH" value="/root/cfe/core-linux.bin"/>
   <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
