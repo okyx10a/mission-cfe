@@ -29,7 +29,7 @@ cat - <<EOF> mission-cfe.launch
   <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="remote"/>
   <booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="true"/>
   <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN_SYMBOL" value="main"/>
-  <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="bin/exe/core-linux.bin"/>
+  <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="bin/core-linux.bin"/>
   <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="mission-cfe"/>
   <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="false"/>
   <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value=""/>
