@@ -4,3 +4,6 @@
 [submodule "apps/storecmd"]
 	path = apps/storecmd
 	url = https://github.com/yorku-qb50/cfs-storecmd.git
+[submodule "apps/fipex"]
+	path = apps/fipex
+	url = https://github.com/okyx10a/cfs-fipex.git
