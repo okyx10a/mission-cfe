@@ -33,7 +33,7 @@ Additional documentation can be found in:
 4. In the remote terminal, execute the commands:
 
 ```bash
-   cd workspace/mission-cfe/.settings
+   cd workspace/qb50-cfe/.settings
    chmod +x mission-cfe.launch.sh
    ./mission-cfe.launch.sh
 ```
