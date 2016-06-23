@@ -14,24 +14,30 @@ Additional documentation can be found in:
 
 ## Setting Up Development Environment
 1. Clone the `devops` projects into a this project's parent directory:
-   ```bash
+
+```bash
    cd ..; git clone https://github.com/yorku-qb50/devops.git
-   ```
+```
+
 2. Then update the base box and start the machine:
-   ```bash
+
+```bash
    cd devops
    vagrant box update
    vagrant up
-   ```
+```
+
    This will create an Eclipse workspace in the parent directory.
 3. Connect to the machine via PuTTY and X11 (Xming) on `localhost:2222`
    using the credentials: username: `vagrant` and password: `vagrant`.
 4. In the remote terminal, execute the commands:
-   ```bash
+
+```bash
    cd workspace/mission-cfe/.settings
    chmod +x mission-cfe.launch.sh
    ./mission-cfe.launch.sh
-   ```
+```
+
 5. In the remote terminal, execute the command: `eclipse &` and when
    prompted set the workspace to `/home/vagrant/workspace`.
 
