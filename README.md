@@ -42,9 +42,11 @@ Additional documentation can be found in:
 5. In the remote terminal, execute the command: `eclipse &` and when
    prompted set the workspace to `/home/vagrant/workspace`.
 6. In the **Remote Systems** panel, right click and select **New > Connection**.
-7. Select **SSH Only** and then **Next**.
-8. Enter the IP address of the board and a name of the connection.
-9. Then click, **Finish**.
+   Select **SSH Only** and then **Next**. Enter the IP address of the board
+   and a name of the connection and then click **Finish**.
+7. Import the project, from the main menu **File > Import** and select
+   **Existing projects into Workspace**, browse to the workspace and select
+   `qb50-cfe` and then click **Finish**.
 
 ## Sources
 * http://opensource.gsfc.nasa.gov/projects/cfe/index.php
