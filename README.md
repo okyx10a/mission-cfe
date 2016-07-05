@@ -35,8 +35,8 @@ Additional documentation can be found in:
 ```bash
    cd workspace/qb50-cfe/.settings
    export BOARD_IP=192.168.1.2 # IP address of the board (replace)
-   chmod +x mission-cfe.launch.sh
-   ./mission-cfe.launch.sh
+   chmod +x qb50-cfe.launch.sh
+   ./qb50-cfe.launch.sh
 ```
 
 5. In the remote terminal, execute the command: `eclipse &` and when
