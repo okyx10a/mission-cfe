@@ -1,16 +1,16 @@
 #!/bin/bash
 #
-# mission-cfe.launch.sh
+# qb50-cfe.launch.sh
 #
-# Generates the mission-cfe.launch XML configuration,
+# Generates the qb50-cfe.launch XML configuration,
 # supplants the IP address of the current host machine
 # for the variable $IP and outputs the generated file
-# to mission-cfe.launch.
+# to qb50-cfe.launch.
 #
 
 IP=$(ip addr show dev eth1 | grep -o 'inet [0-9.]*' | cut -d' ' -f2)
 
-cat - <<EOF> mission-cfe.launch
+cat - <<EOF> qb50-cfe.launch
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.cdt.launch.remoteApplicationLaunchType">
   <booleanAttribute key="org.eclipse.cdt.dsf.gdb.AUTO_SOLIB" value="true"/>
@@ -30,21 +30,21 @@ cat - <<EOF> mission-cfe.launch
   <booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="true"/>
   <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN_SYMBOL" value="main"/>
   <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="bin/core-linux.bin"/>
-  <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="mission-cfe"/>
+  <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="qb50-cfe"/>
   <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="false"/>
   <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value=""/>
   <booleanAttribute key="org.eclipse.cdt.launch.remote.RemoteCDSFDebuggerTab.DEFAULTS_SET" value="true"/>
   <stringAttribute key="org.eclipse.debug.core.ATTR_GDBSERVER_COMMAND" value="gdbserver"/>
   <stringAttribute key="org.eclipse.debug.core.ATTR_GDBSERVER_PORT" value="2345"/>
-  <stringAttribute key="org.eclipse.debug.core.ATTR_PRERUN_CMDS" value="rm -fr /root/cfe; scp -r vagrant@$IP:/home/vagrant/workspace/mission-cfe/bin /root/cfe; cd /root/cfe"/>
+  <stringAttribute key="org.eclipse.debug.core.ATTR_PRERUN_CMDS" value="rm -fr /root/cfe; scp -r vagrant@$IP:/home/vagrant/workspace/qb50-cfe/bin /root/cfe; cd /root/cfe"/>
   <booleanAttribute key="org.eclipse.debug.core.ATTR_SKIP_DOWNLOAD_TO_TARGET" value="false"/>
   <stringAttribute key="org.eclipse.debug.core.ATTR_TARGET_PATH" value="/root/cfe/core-linux.bin"/>
   <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-    <listEntry value="/mission-cfe"/>
+    <listEntry value="/qb50-cfe"/>
   </listAttribute>
   <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
     <listEntry value="4"/>
   </listAttribute>
-  <stringAttribute key="org.eclipse.debug.core.REMOTE_TCP" value="192.168.1.9"/>
+  <stringAttribute key="org.eclipse.debug.core.REMOTE_TCP" value="$BOARD_IP"/>
 </launchConfiguration>
 EOF

@@ -34,12 +34,17 @@ Additional documentation can be found in:
 
 ```bash
    cd workspace/qb50-cfe/.settings
+   export BOARD_IP=192.168.1.2 # IP address of the board (replace)
    chmod +x mission-cfe.launch.sh
    ./mission-cfe.launch.sh
 ```
 
 5. In the remote terminal, execute the command: `eclipse &` and when
    prompted set the workspace to `/home/vagrant/workspace`.
+6. In the **Remote Systems** panel, right click and select **New > Connection**.
+7. Select **SSH Only** and then **Next**.
+8. Enter the IP address of the board and a name of the connection.
+9. Then click, **Finish**.
 
 ## Sources
 * http://opensource.gsfc.nasa.gov/projects/cfe/index.php
