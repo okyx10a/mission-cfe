@@ -11,17 +11,17 @@
 #
 # Subsystem produced by this makefile.
 #
-APPTARGET = sample_app
+APPTARGET = su_app
 
 # 
 # Entry Point for task
 # 
-ENTRY_PT = SAMPLE_AppMain
+ENTRY_PT = SU_AppMain
 
 #
 # Object files required to build subsystem.
 #
-OBJS = sample_app.o
+OBJS = su_app.o
 
 #
 # Source files required to build subsystem; used to generate dependencies.

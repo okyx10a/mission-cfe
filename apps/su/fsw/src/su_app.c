@@ -1,5 +1,10 @@
 /*Includes*/
 #include "su_app.h"
+#include "su_app_msgids.h"
+#include "su_app_perfids.h"
+#include "su_app_events.h"
+#include "su_app_msg.h"
+#include "su_app_versions.h"
 
 su_hk_tlm_t    SU_HkTelemetryPkt;
 CFE_SB_PipeId_t    SU_CommandPipe;
