@@ -14,24 +14,27 @@
 
 /* Macros */
 #define BAUDRATE B115200
-#define DEVICE "/dev/ttyS1"
+#define DEVICE "/dev/ttyS3"
 #define _POSIX_SOURCE 1 /* POSIX compliant source */
-#define FALSE 0
-#define TRUE 1
+
 
 #define SU_PIPE_DEPTH                     32
 
+#define PING                              0
+#define INIT                              1
+#define OINK                              2
+
 /*Data*/
-int fd;
-int resp_flag;
+uint32 fd;
+boolean resp_flag;
 
  /* Prototypes */
 
 /* Serial related functions */
-int Open_Port(void);
-int Set_Attribute(void);
-int Send(uint8_t *cmd);
-void signal_handler_IO (int signo, siginfo_t *siginfo, void *ucontext);   /* definition of signal handler */
+int32 Open_Port(void);
+int32 Set_Attribute(void);
+int32 Send(uint8 *cmd);
+void signal_handler_IO (int signo, siginfo_t *siginfo, void *ucontext);  
 void signal_handler_SEG (int signo, siginfo_t *siginfo, void *ucontext);
 void signal_handler_INT (int signo, siginfo_t *siginfo, void *ucontext);
 

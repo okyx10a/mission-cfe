@@ -14,7 +14,7 @@
 
 
 
-int Open_Port(void)
+int32 Open_Port(void)
 {
     printf("\nOpening Serial Port %s", DEVICE);
     if((fd = open(DEVICE, O_RDWR | O_NOCTTY | O_NONBLOCK )) == -1)
@@ -28,7 +28,7 @@ int Open_Port(void)
     return fd;
 }  
 
-int Set_Attribute(void)
+int32 Set_Attribute(void)
 {
 
     static struct termios oldtio, newtio; // Old and new settings for port
@@ -52,7 +52,7 @@ int Set_Attribute(void)
     if(fcntl(fd,F_SETOWN,getpid()) == -1) {perror(DEVICE);}
     fcntl(fd, F_SETFL, FASYNC); 
     // Set fd signals (needed for siginfo to be populated)
-    if(fcntl(fd,10,SIGIO) == -1) {perror(DEVICE);} 
+    if(fcntl(fd,10,SIGIO) == -1) {perror(DEVICE);} //10 is the value of F_SETSIG
     tcgetattr(fd, &oldtio); // save current port settings
 
     saseg.sa_sigaction = signal_handler_SEG;
@@ -73,16 +73,19 @@ int Set_Attribute(void)
     newtio.c_oflag = 0;
     newtio.c_lflag = 0; //ICANON does canonical input processing
     newtio.c_cc[VMIN] = 0; // Wait until x bytes read (blocks!)
-    newtio.c_cc[VTIME] = 0; // Wait x * 0.1s for input (unblocks!)
-    tcsetattr(fd, TCSANOW, &newtio);  
-}
-/* This entry point can take from standard input and write to a serial */
+    newtio.c_cc[VTIME] = 2; // Wait x * 0.1s for input (unblocks!)
+    tcsetattr(fd, TCSANOW, &newtio); 
 
-int Send(uint8_t *cmd){
+    return 0; 
+}
+
+
+int32 Send(uint8 *cmd){
+    printf("\nSending the %02x Instruction\n", cmd);
     write(fd, cmd, sizeof cmd);
     sleep(1);
-    tcflush(fd, TCIFLUSH);
-    return 0; // error indicator need 
+    //tcflush(fd, TCIFLUSH);
+    return 0; // error indicator need further edit
 }
 
 

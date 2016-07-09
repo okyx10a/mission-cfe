@@ -21,6 +21,7 @@
 #
 all ::
 	bash -c "source ./setvars.sh; \
+	rm -rf bin/*; \
 	cp -av build/$(BUILD_CPU) build/$(BUILD_CPU)~; \
 	cp -av build/mission_inc build/mission_inc~; \
 	$(MAKE) -C build/$(BUILD_CPU) config; \

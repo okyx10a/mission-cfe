@@ -3,29 +3,10 @@
 /* Includes */
 #include "su_app.h"
 
-/*{
-    char* name = (char*)calloc(1024,sizeof(char));
-    if(name){
-        sprintf(name, "/proc/%d/cmdline",pid);
-        FILE* f = fopen(name,"r");
-        if(f){
-            size_t size;
-            size = fread(name, sizeof(char), 1024, f);
-            if(size>0){
-                if('\n'==name[size-1])
-                    name[size-1]='\0';
-            }
-            fclose(f);
-        }
-    }
-    return name;
-}*/
-
 /*This handler was modified for FIPEX*/
 void signal_handler_IO (int signo, siginfo_t *siginfo, void *ucontext) { // should be signal_handler_IO
-    int size = 0;
-    int i = 0;
-    uint8_t resp[254];
+    uint16 i = 0;
+    uint8 resp[254];
     if(siginfo-> si_code == POLL_IN){
         printf("Caught the signal.\n");
         printf("The signal is %d\n", signo);
@@ -44,6 +25,7 @@ void signal_handler_IO (int signo, siginfo_t *siginfo, void *ucontext) { // shou
         /*
         * Read the first 5 bytes of what FIPEX returns and do something about it. 
         */
+        resp_flag = TRUE;
     }
      else
     {

@@ -11,7 +11,7 @@
 #
 # Subsystem produced by this makefile.
 #
-APPTARGET = su_app
+APPTARGET = su
 
 # 
 # Entry Point for task
@@ -21,7 +21,7 @@ ENTRY_PT = SU_AppMain
 #
 # Object files required to build subsystem.
 #
-OBJS = su_app.o
+OBJS = su_app.o su_serial.o signal_Handlers.o
 
 #
 # Source files required to build subsystem; used to generate dependencies.
