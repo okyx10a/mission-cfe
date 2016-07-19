@@ -23,9 +23,6 @@
 ** Common CFS app includes below are commented out
 */
 #include "ci_lab_msgids.h"
-
-#include "sample_app_msgids.h"
-
 #if 0
 #include "hs_msgids.h"
 #include "fm_msgids.h"
@@ -40,7 +37,6 @@ static TO_subsciption_t  TO_SubTable[] =
             {TO_LAB_HK_TLM_MID,     {0,0},  4},
             {TO_LAB_DATA_TYPES_MID, {0,0},  4},
             {CI_LAB_HK_TLM_MID,     {0,0},  4},
-            {SAMPLE_APP_HK_TLM_MID, {0,0},  4},
 
 #if 0
             /* Add these if needed */
@@ -50,6 +46,7 @@ static TO_subsciption_t  TO_SubTable[] =
             {DS_HK_TLM_MID,         {0,0},  4},
             {LC_HK_TLM_MID,         {0,0},  4},
 #endif
+
             /* cFE Core subsciptions */
             {CFE_ES_HK_TLM_MID,     {0,0},  4},
             {CFE_EVS_HK_TLM_MID,    {0,0},  4},

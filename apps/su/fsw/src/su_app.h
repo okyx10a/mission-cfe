@@ -1,10 +1,10 @@
-/* Includes */
+/* Includes cfe*/
 #include "cfe.h"
 #include "cfe_error.h"
 #include "cfe_evs.h"
 #include "cfe_sb.h"
 #include "cfe_es.h"
-/* Includes */
+/* Includes std library*/
 #include <termios.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -20,9 +20,15 @@
 
 #define SU_PIPE_DEPTH                     32
 
+/* testing purposes only
 #define PING                              0
 #define INIT                              1
 #define OINK                              2
+*/
+
+//script access options
+#define  SET_ACTIVE                       0
+#define  UPDATE                           1
 
 /*Data*/
 uint32 fd;

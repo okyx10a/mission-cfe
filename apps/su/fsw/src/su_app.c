@@ -6,6 +6,7 @@
 #include "su_app_msg.h"
 #include "su_app_version.h"
 
+
 su_hk_tlm_t    SU_HkTelemetryPkt;
 CFE_SB_PipeId_t    SU_CommandPipe;
 CFE_SB_MsgPtr_t    SUMsgPtr;
@@ -28,14 +29,14 @@ uint8 SU_DP[] = {0x7E, 0x21, 0x00, 0x21};    /* Request Science Data packet */
 
 int32 SU_AppInit(void);
 
-void Read_temp(void);
-
 int32 Process_Cmd(CFE_SB_MsgPtr_t msg);
+
+void Read_temp(void);
 
 
 void SU_AppMain(void) {
 
-    
+    int32 test_counter = 0;
 
     int32  status;
     uint32 RunStatus = CFE_ES_APP_RUN;
@@ -44,13 +45,10 @@ void SU_AppMain(void) {
 
     status = SU_AppInit();
 
-
-
-    
-
     /*
     ** SU Runloop
     */
+    
     fd = Open_Port();
     if(fd == -1)
     {
@@ -59,23 +57,35 @@ void SU_AppMain(void) {
     }
     Set_Attribute();
 
-    printf("\nSending the Ping Instruction\n");
-    write(fd, ping, sizeof ping);
-    sleep(1);
-    //Read_temp();       
     
-    printf("\nSending the Init Instruction\n");
-    write(fd, init, sizeof init);
-    sleep(1);  
-    //Read_temp();  
 
     while (CFE_ES_RunLoop(&RunStatus) == TRUE)
-    {
+    {   
+
         CFE_ES_PerfLogExit(SU_APP_PERF_ID);
+
+        if(test_counter<5){
+            printf("\nSending the Ping Instruction\n");
+            resp_flag = FALSE;
+            write(fd, ping, sizeof ping);
+            sleep(1);
+			
+            while(resp_flag != TRUE){
+                sleep(1);
+            }
+    
+            printf("\nSending the Init Instruction\n");
+            resp_flag = FALSE;
+            write(fd, init, sizeof init);
+            sleep(1); 
+
+            test_counter++;
+        }
 
         status = CFE_SB_RcvMsg(&SUMsgPtr, SU_CommandPipe, 500);
 
         //Process_Cmd(SUMsgPtr);
+        
         
         CFE_ES_PerfLogEntry(SU_APP_PERF_ID);
           
@@ -129,17 +139,6 @@ int32 SU_AppInit(void){
     return status; //error indicator further edit needed
 }
 
-void Read_temp(void){
-
-    uint16 i = 0;
-    uint8 resp[254];
-
-    read(fd, resp, sizeof resp);
-        for(i = 0; i < sizeof resp; i++){
-           printf("%02x ", resp[i]);
-        }
-        printf("\n");
-}
 
 int32 Process_Cmd(CFE_SB_MsgPtr_t msg){
     CFE_SB_MsgId_t MessageID;
@@ -193,3 +192,32 @@ int32 Process_Cmd(CFE_SB_MsgPtr_t msg){
     return 0;
 
 }
+
+/*Write, execute a given script*/
+
+int32 script_handler(char  *scriptname,  int  access){
+    int32 script_fd;
+    if(access == SET_ACTIVE)
+    {
+	    script_fd = open(scriptname, O_RDONLY);
+
+    }
+    else if(access == update)
+    {
+        script_fd = open(scriptname,O_WRONLY);
+    }
+
+}
+
+int32 error_handler(){
+
+}
+
+int32 command_handler(){
+
+}
+
+int32 response_handler(){
+
+}
+

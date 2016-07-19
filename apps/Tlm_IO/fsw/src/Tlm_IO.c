@@ -1,11 +1,6 @@
-/*
-* File is for testing purposes. 
-*/
 
 /* Includes */
-#include "su_app.h"
-
-
+#include "Tlm_IO.h"
 /*
 * The termios header defines the terminal control structure and the POSIX control functions.
 * The two most important POSIX control functions are tcegetattr(3) & tcsetattr(3). These get and
@@ -14,7 +9,7 @@
 
 
 
-int32 Open_Port(void)
+int Open_Port(void)
 {
     printf("\nOpening Serial Port %s", DEVICE);
     if((fd = open(DEVICE, O_RDWR | O_NOCTTY | O_NONBLOCK )) == -1)
@@ -28,8 +23,9 @@ int32 Open_Port(void)
     return fd;
 }  
 
-int32 Set_Attribute(void)
+int Set_Attribute(void)
 {
+
     static struct termios oldtio, newtio; // Old and new settings for port
     struct sigaction saio; 
     struct sigaction saseg;
@@ -51,7 +47,7 @@ int32 Set_Attribute(void)
     if(fcntl(fd,F_SETOWN,getpid()) == -1) {perror(DEVICE);}
     fcntl(fd, F_SETFL, FASYNC); 
     // Set fd signals (needed for siginfo to be populated)
-    if(fcntl(fd,10,SIGIO) == -1) {perror(DEVICE);} //10 is the value of F_SETSIG
+    if(fcntl(fd,10,SIGIO) == -1) {perror(DEVICE);} 
     tcgetattr(fd, &oldtio); // save current port settings
 
     saseg.sa_sigaction = signal_handler_SEG;
@@ -72,20 +68,64 @@ int32 Set_Attribute(void)
     newtio.c_oflag = 0;
     newtio.c_lflag = 0; //ICANON does canonical input processing
     newtio.c_cc[VMIN] = 0; // Wait until x bytes read (blocks!)
-    newtio.c_cc[VTIME] = 2; // Wait x * 0.1s for input (unblocks!)
-    tcsetattr(fd, TCSANOW, &newtio); 
-
-    return 0; 
+    newtio.c_cc[VTIME] = 0; // Wait x * 0.1s for input (unblocks!)
+    tcsetattr(fd, TCSANOW, &newtio);  
 }
 
-
-/*int32 Send(uint8 *cmd){
-    printf("\nSending the %02x Instruction\n", cmd);
-    write(fd, cmd, sizeof cmd);
+void paramSetUp(void) {
+    uint8_t getFrequency[] = {0xC0, 0x21, 0x00, 0xC0};
+    uint8_t setFrequency[] = {0xC0, 0x20, 0x1A, 0x16, 0x77, 0x80, 0xC0};
+    uint8_t setPower[] = {0xC0, 0x22, 0xA0, 0xC0}; /* Full Power*/
+    uint8_t getPower[] = {0XC0, 0x23, 0x00, 0xC0}; 
+    printf("\nSending the setFrequency Instruction\n");
+    printf("\nIf Successful, the message should have 0x00 in its data component.\n");
+    write(fd, setFrequency, sizeof setFrequency);
     sleep(1);
-    //tcflush(fd, TCIFLUSH);
-    return 0; // error indicator need further edit
-}*/
+    printf("\nSending the getFrequency Instruction\n");
+    write(fd, getFrequency, sizeof getFrequency);
+    sleep(1);
+    printf("\nSending the setPower Instruction\n");
+    write(fd, setPower, sizeof setPower);
+    printf("\nIf Successful, the message should have 0x00 in its data component.\n");
+    sleep(1);
+    printf("\nSending the getPower Instruction\n");
+    write(fd, getPower, sizeof getPower);
+    sleep(1);
+}
 
+int Tlm_IO_main(int argc, char**argv) {
+
+    int i = 0;
+    fd = Open_Port();
+    if(fd == -1)
+    {
+        printf("Port not opened");
+        exit(1);
+    }
+    Set_Attribute();
+    /***************/
+    /* Setting up parameters */
+    paramSetUp();
+
+
+    /*uint8_t sndGoofyMsg[] = {0xC0, 0x00, 0x7E, 0x01, 0x00, 0x01, 0x00, 
+        0x01, 0x00, 0x01, 0x00, 0x01, 0x00, 0x01, 0x00, 0x01, 0x00, 0x01, 0x00, 0x7E, 0xC0};
+    for(;i<10;i++){
+        printf("\nSending the goofy message Instruction\n");
+        write(fd, sndGoofyMsg, sizeof sndGoofyMsg);
+        sleep(10);
+        printf("\nThere will be no response to the console \n");
+    }*/
+
+
+    for(;;)
+    {
+        sleep(1);
+    }
+    return(0);
+      
+}
+
+int32 
 
 

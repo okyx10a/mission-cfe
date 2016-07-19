@@ -5,32 +5,38 @@
 
 /*This handler was modified for FIPEX*/
 void signal_handler_IO (int signo, siginfo_t *siginfo, void *ucontext) { // should be signal_handler_IO
-    uint16 i = 0;
+    uint16 i,j;
     uint8 resp[254];
     if(siginfo-> si_code == POLL_IN){
-        printf("Caught the signal.\n");
-        printf("The signal is %d\n", signo);
-        if (signo == 29) {
-            printf("The signal that was caught was a SIGIO signal.\n");
-        } else {
-            perror("Bad signal");
-        }
-        printf("The ID of the sending process is %d\n", siginfo->si_pid);
-        sleep(1);       
-        read(fd, resp, sizeof resp);
-        for(i = 0; i < sizeof resp; i++){
-           printf("%02x ", resp[i]);
-        }
-        printf("\n");
-        /*
-        * Read the first 5 bytes of what FIPEX returns and do something about it. 
-        */
-        resp_flag = TRUE;
+		if(j == 0)//pick the first response only 
+		{
+			printf("Caught the signal.\n");
+			printf("The signal is %d\n", signo);
+			if (signo == 29) {
+				printf("The signal that was caught was a SIGIO signal.\n");
+			} else {
+				perror("Bad signal");
+			}
+			printf("The ID of the sending process is %d\n", siginfo->si_pid);
+			sleep(1);       
+			read(fd, resp, 5);
+			for(i = 0; i < 5; i++){
+				printf("%02x ", resp[i]);
+			}
+			printf("\n");
+			/*
+			* Read the first 5 bytes of what FIPEX returns and do something about it. 
+			*/
+			resp_flag = TRUE;// a flag indicates a reply has been recieved, may be better ways to do it?
+		}
+		j++;
+		
     }
-     else
+    else
     {
-        tcflush(fd, TCIFLUSH);
-        sleep(1);
+		    j = 0;
+        //tcflush(fd, TCIFLUSH);
+        //sleep(1);
     }
     
        
