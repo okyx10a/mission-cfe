@@ -202,7 +202,7 @@ int32 script_handler(char  *scriptname,  int  access){
 	    script_fd = open(scriptname, O_RDONLY);
 
     }
-    else if(access == update)
+    else if(access == UPDATE)
     {
         script_fd = open(scriptname,O_WRONLY);
     }

@@ -35,8 +35,8 @@ void signal_handler_IO (int signo, siginfo_t *siginfo, void *ucontext) { // shou
     else
     {
 		    j = 0;
-        //tcflush(fd, TCIFLUSH);
-        //sleep(1);
+        tcflush(fd, TCIFLUSH);
+        sleep(1);
     }
     
        
