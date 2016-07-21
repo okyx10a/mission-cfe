@@ -16,14 +16,14 @@
 
 int32 Open_Port(void)
 {
-    printf("\nOpening Serial Port %s", DEVICE);
+    //printf("\nOpening Serial Port %s", DEVICE);
     if((fd = open(DEVICE, O_RDWR | O_NOCTTY | O_NONBLOCK )) == -1)
     { 
         perror(DEVICE); 
         return -1; 
     }
     //open the device (com port) to be non-blocking (read will return immediately)
-    printf("\nOpened port %s as %u\n", DEVICE, fd);
+    //printf("\nOpened port %s as %u\n", DEVICE, fd);
     tcflush(fd, TCIFLUSH);
     return fd;
 }  
@@ -46,8 +46,8 @@ int32 Set_Attribute(void)
     First, they specify a process as the "owner" of the file. When a process invokes the F_SETOWN command
     using the fcntl system call, the process ID of the owner process is saved. In order to get asynchronous notification, 
     the user programs must set the FASYNC flag in the device by means of the F_SETFL fcntl command.
-    http://www.makelinux.net/ldd3/chp-6-sect-4
-    */
+    http://www.makelinux.net/ldd3/chp-6-sect-4*/
+
     if(fcntl(fd,F_SETOWN,getpid()) == -1) {perror(DEVICE);}
     fcntl(fd, F_SETFL, FASYNC); 
     // Set fd signals (needed for siginfo to be populated)

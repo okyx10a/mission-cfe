@@ -15,6 +15,7 @@
 */
 
 tester_hk_tlm_t    TESTER_HkTelemetryPkt;
+TESTER_NoArgsCmd_t test_cmd;
 CFE_SB_PipeId_t    TESTER_CommandPipe;
 CFE_SB_MsgPtr_t    TESTERMsgPtr;
 
@@ -31,7 +32,6 @@ static CFE_EVS_BinFilter_t  TESTER_EventFilters[] =
 /*                                                                            */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  * *  * * * * **/
 
-void Tester_Main( void );
 
 void TESTER_AppInit(void);
 
@@ -60,7 +60,7 @@ void Tester_Main( void )
 
         if (status == CFE_SUCCESS)
         {
-            TESTER_SendCommand(SU_APP_CMD_MID);
+            TESTER_SendCommand();
         }
 
     }
@@ -96,7 +96,7 @@ void TESTER_AppInit(void)
     CFE_SB_Subscribe(TESTER_APP_CMD_MID, TESTER_CommandPipe);
     CFE_SB_Subscribe(TESTER_APP_SEND_HK_MID, TESTER_CommandPipe);
 
-    TESTER_ResetCounters();
+    //TESTER_ResetCounters();
 
     CFE_SB_InitMsg(&TESTER_HkTelemetryPkt,
                    TESTER_APP_HK_TLM_MID,
@@ -111,23 +111,29 @@ void TESTER_AppInit(void)
         
 } /* End of TESTER_AppInit() */
 
-void TESTER_SendCommand(CFE_SB_MsgPtr_t  MsgPtr)
+void TESTER_SendCommand()
 {
-    CFE_SB_MsgId_t msgid;
-    uint16 cmd_code;
+    uint8          App_index = 0;
+    CFE_SB_MsgId_t  msgid;
+    uint16          cmd_code;
 
 
-
-    printf("Pls input msg id:");
-    scanf("%x",msgid);
-    CFE_SB_InitMsg(MsgPtr, msgid, (uint16)(sizeof MsgPtr), TRUE);
+    printf("Pls choose the app u want to command:\n");
+    printf("1. SU\n");
+    App_index = getc(stdin);
+    printf("%c\n",App_index);
+    switch(App_index){
+        case 1: msgid = 0x1992;
+        default: printf("Not implemented :( \n");
+    }
+    CFE_SB_InitMsg((CFE_SB_Msg_t*)&test_cmd, msgid, (uint16)(sizeof test_cmd), TRUE);
     //CFE_SB_SetMsgId(MsgPtr,msgid);
 
     printf("Pls input cmd code:");
     scanf("%x",cmd_code);
 
-    CFE_SB_SetCmdCode(MsgPtr,cmd_code);
-
+    CFE_SB_SetCmdCode((CFE_SB_Msg_t*)&test_cmd,cmd_code);
+    CFE_SB_SendMsg((CFE_SB_Msg_t*)&test_cmd);
 
 
 

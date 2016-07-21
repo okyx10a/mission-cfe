@@ -1,6 +1,12 @@
 #ifndef _su_app_msg_h_
 #define _su_app_msg_h_
 
+typedef struct
+{
+   uint8    CmdHeader[CFE_SB_CMD_HDR_SIZE];
+
+} SU_NoArgsCmd_t;
+
 typedef struct 
 {
     uint8              TlmHeader[CFE_SB_TLM_HDR_SIZE];

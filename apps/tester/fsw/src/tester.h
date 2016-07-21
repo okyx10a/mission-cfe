@@ -4,3 +4,7 @@
 #include "cfe_evs.h"
 #include "cfe_sb.h"
 #include "cfe_es.h"
+
+
+
+#define TESTER_PIPE_DEPTH                     32

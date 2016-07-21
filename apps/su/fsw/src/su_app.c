@@ -36,7 +36,7 @@ void Read_temp(void);
 
 void SU_AppMain(void) {
 
-    int32 test_counter = 0;
+    //int32 test_counter = 0;
 
     int32  status;
     uint32 RunStatus = CFE_ES_APP_RUN;
@@ -48,23 +48,12 @@ void SU_AppMain(void) {
     /*
     ** SU Runloop
     */
-    
-    fd = Open_Port();
-    if(fd == -1)
-    {
-        printf("Port not opend");
-        exit(1);
-    }
-    Set_Attribute();
-
-    
-
     while (CFE_ES_RunLoop(&RunStatus) == TRUE)
     {   
 
         CFE_ES_PerfLogExit(SU_APP_PERF_ID);
 
-        if(test_counter<5){
+        /*if(test_counter<5){
             printf("\nSending the Ping Instruction\n");
             resp_flag = FALSE;
             write(fd, ping, sizeof ping);
@@ -80,9 +69,12 @@ void SU_AppMain(void) {
             sleep(1); 
 
             test_counter++;
-        }
+        }*/
 
         status = CFE_SB_RcvMsg(&SUMsgPtr, SU_CommandPipe, 500);
+
+        if(status = CFE_SUCCESS)
+            printf("%x",CFE_SB_GetCmdCode(SUMsgPtr));
 
         //Process_Cmd(SUMsgPtr);
         
@@ -128,6 +120,9 @@ int32 SU_AppInit(void){
     CFE_SB_InitMsg(&SU_HkTelemetryPkt,        //su_app_msg.h
                    SU_APP_HK_TLM_MID,         //su_app_msgids.h
                    SU_APP_HK_TLM_LNGTH, TRUE);//su_app_msg.h
+
+    fd = Open_Port();
+    Set_Attribute();
 
     CFE_EVS_SendEvent (SU_STARTUP_INF_EID, CFE_EVS_INFORMATION,
                "SU App Initialized. Version %d.%d.%d.%d",
