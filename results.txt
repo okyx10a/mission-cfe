@@ -1,0 +1,775 @@
+bash -c "source ./setvars.sh; \
+	rm -rf bin/*; \
+	cp -av build/cpu2 build/cpu2~; \
+	cp -av build/mission_inc build/mission_inc~; \
+	make -C build/cpu2 config; \
+	make -C build/cpu2; \
+	rm -vrf bin; mv -v build/cpu2/exe bin; \
+	rm -vrf build/cpu2 build/mission_inc; \
+	mv -v build/cpu2~ build/cpu2; \
+	mv -v build/mission_inc~ build/mission_inc;"
+`build/cpu2' -> `build/cpu2~'
+`build/cpu2/cfe' -> `build/cpu2~/cfe'
+`build/cpu2/cfe/cfe-config.mak' -> `build/cpu2~/cfe/cfe-config.mak'
+`build/cpu2/cfe/debug-opts.mak' -> `build/cpu2~/cfe/debug-opts.mak'
+`build/cpu2/cfe/detail_doxy' -> `build/cpu2~/cfe/detail_doxy'
+`build/cpu2/cfe/es' -> `build/cpu2~/cfe/es'
+`build/cpu2/cfe/es/Makefile' -> `build/cpu2~/cfe/es/Makefile'
+`build/cpu2/cfe/evs' -> `build/cpu2~/cfe/evs'
+`build/cpu2/cfe/evs/Makefile' -> `build/cpu2~/cfe/evs/Makefile'
+`build/cpu2/cfe/fs' -> `build/cpu2~/cfe/fs'
+`build/cpu2/cfe/fs/Makefile' -> `build/cpu2~/cfe/fs/Makefile'
+`build/cpu2/cfe/link' -> `build/cpu2~/cfe/link'
+`build/cpu2/cfe/link/Makefile' -> `build/cpu2~/cfe/link/Makefile'
+`build/cpu2/cfe/Makefile' -> `build/cpu2~/cfe/Makefile'
+`build/cpu2/cfe/osal' -> `build/cpu2~/cfe/osal'
+`build/cpu2/cfe/osal/Makefile' -> `build/cpu2~/cfe/osal/Makefile'
+`build/cpu2/cfe/psp' -> `build/cpu2~/cfe/psp'
+`build/cpu2/cfe/psp/Makefile' -> `build/cpu2~/cfe/psp/Makefile'
+`build/cpu2/cfe/sb' -> `build/cpu2~/cfe/sb'
+`build/cpu2/cfe/sb/Makefile' -> `build/cpu2~/cfe/sb/Makefile'
+`build/cpu2/cfe/tbl' -> `build/cpu2~/cfe/tbl'
+`build/cpu2/cfe/tbl/Makefile' -> `build/cpu2~/cfe/tbl/Makefile'
+`build/cpu2/cfe/time' -> `build/cpu2~/cfe/time'
+`build/cpu2/cfe/time/Makefile' -> `build/cpu2~/cfe/time/Makefile'
+`build/cpu2/cfe/unit-test' -> `build/cpu2~/cfe/unit-test'
+`build/cpu2/cfe/unit-test/es' -> `build/cpu2~/cfe/unit-test/es'
+`build/cpu2/cfe/unit-test/es/Makefile' -> `build/cpu2~/cfe/unit-test/es/Makefile'
+`build/cpu2/cfe/unit-test/evs' -> `build/cpu2~/cfe/unit-test/evs'
+`build/cpu2/cfe/unit-test/evs/Makefile' -> `build/cpu2~/cfe/unit-test/evs/Makefile'
+`build/cpu2/cfe/unit-test/fs' -> `build/cpu2~/cfe/unit-test/fs'
+`build/cpu2/cfe/unit-test/fs/Makefile' -> `build/cpu2~/cfe/unit-test/fs/Makefile'
+`build/cpu2/cfe/unit-test/Makefile' -> `build/cpu2~/cfe/unit-test/Makefile'
+`build/cpu2/cfe/unit-test/sb' -> `build/cpu2~/cfe/unit-test/sb'
+`build/cpu2/cfe/unit-test/sb/Makefile' -> `build/cpu2~/cfe/unit-test/sb/Makefile'
+`build/cpu2/cfe/unit-test/tbl' -> `build/cpu2~/cfe/unit-test/tbl'
+`build/cpu2/cfe/unit-test/tbl/Makefile' -> `build/cpu2~/cfe/unit-test/tbl/Makefile'
+`build/cpu2/cfe/unit-test/time' -> `build/cpu2~/cfe/unit-test/time'
+`build/cpu2/cfe/unit-test/time/Makefile' -> `build/cpu2~/cfe/unit-test/time/Makefile'
+`build/cpu2/cfe/user_doxy' -> `build/cpu2~/cfe/user_doxy'
+`build/cpu2/detail_doxy' -> `build/cpu2~/detail_doxy'
+`build/cpu2/docs' -> `build/cpu2~/docs'
+`build/cpu2/docs/dox_src' -> `build/cpu2~/docs/dox_src'
+`build/cpu2/docs/dox_src/detailed_design' -> `build/cpu2~/docs/dox_src/detailed_design'
+`build/cpu2/docs/dox_src/detailed_design/cpu2.dox' -> `build/cpu2~/docs/dox_src/detailed_design/cpu2.dox'
+`build/cpu2/docs/dox_src/get_date.sh' -> `build/cpu2~/docs/dox_src/get_date.sh'
+`build/cpu2/docs/dox_src/mnem_maps' -> `build/cpu2~/docs/dox_src/mnem_maps'
+`build/cpu2/docs/dox_src/mnem_maps/.gitkeep' -> `build/cpu2~/docs/dox_src/mnem_maps/.gitkeep'
+`build/cpu2/docs/dox_src/users_guide' -> `build/cpu2~/docs/dox_src/users_guide'
+`build/cpu2/docs/dox_src/users_guide/cpu2.dox' -> `build/cpu2~/docs/dox_src/users_guide/cpu2.dox'
+`build/cpu2/exe' -> `build/cpu2~/exe'
+`build/cpu2/exe/cfe_es_startup.scr' -> `build/cpu2~/exe/cfe_es_startup.scr'
+`build/cpu2/exe/cfe_es_startup.scr~' -> `build/cpu2~/exe/cfe_es_startup.scr~'
+`build/cpu2/inc' -> `build/cpu2~/inc'
+`build/cpu2/inc/.gitkeep' -> `build/cpu2~/inc/.gitkeep'
+`build/cpu2/Makefile' -> `build/cpu2~/Makefile'
+`build/cpu2/make_cfe_ut' -> `build/cpu2~/make_cfe_ut'
+`build/cpu2/user_doxy' -> `build/cpu2~/user_doxy'
+`build/mission_inc' -> `build/mission_inc~'
+`build/mission_inc/.gitkeep' -> `build/mission_inc~/.gitkeep'
+make[1]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2'
+
+>>> [ENVS] MAKEFILE ENVIRONMENT VARIABLES <<<
+
+MISSION = CFE_TST
+THE_APPS = sample_lib sample_app su tester ci_lab to_lab sch_lab
+THE_TBLS = 
+
+CFS_MISSION = /home/vagrant/workspace/qb50-cfe
+CFS_MISSION_INC = /home/vagrant/workspace/qb50-cfe/build/mission_inc
+CFS_APP_SRC = /home/vagrant/workspace/qb50-cfe/apps
+CFE_FSW = /home/vagrant/workspace/qb50-cfe/cfe/fsw
+CFE_CORE_SRC = /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src
+CFE_CORE_PLATFORM_INC_SRC = cpu1
+CFE_TOOLS = /home/vagrant/workspace/qb50-cfe/cfe/tools
+CFE_PSP_SRC = /home/vagrant/workspace/qb50-cfe/psp/fsw
+OSAL = /home/vagrant/workspace/qb50-cfe/osal
+OSAL_SRC = /home/vagrant/workspace/qb50-cfe/osal/src/os
+
+BUILD_PATH = .
+CFS_EXE = ./exe
+CFS_PROM = ./exe/cf
+CFS_PROM_APPS = ./exe/cf/apps
+CFS_RAM = ./exe/ram
+
+>>> [PRE-BUILD] COPYING HEADER FILES FROM <CFS_MISSION> CORE <<<
+
+Copying <CFE_FSW>/mission_inc/*.h to <CFS_MISSION_INC>
+Copying <CFE_FSW>/platform_inc/<CFE_CORE_PLATFORM_INC_SRC>/cfe_platform_cfg.h to ./inc
+Copying <OSAL>/build/inc/osconfig.h to ./inc
+
+>>> [PRE-BUILD] COPYING HEADER FILES FROM <CFS_APP_SRC>/INC <<<
+
+Copying <CFS_APP_SRC>/inc/*.h to <CFS_MISSION_INC>
+cp: cannot stat `/home/vagrant/workspace/qb50-cfe/apps/inc/*.h': No such file or directory
+make[1]: [cfs_copy_app_shared_incs] Error 1 (ignored)
+
+>>> [PRE-BUILD] COPYING HEADER FILES FROM <APP>/PUBLIC_INC <<<
+
+Copying /home/vagrant/workspace/qb50-cfe/apps/sample_lib/fsw/public_inc/sample_lib.h
+
+>>> [PRE-BUILD] COPYING HEADER FILES FROM <APP>/MISSION_INC <<<
+
+Copying /home/vagrant/workspace/qb50-cfe/apps/sample_app/fsw/mission_inc/sample_app_perfids.h
+Copying /home/vagrant/workspace/qb50-cfe/apps/su/fsw/mission_inc/su_app_perfids.h
+Copying /home/vagrant/workspace/qb50-cfe/apps/tester/fsw/mission_inc/tester_perfids.h
+Copying /home/vagrant/workspace/qb50-cfe/apps/ci_lab/fsw/mission_inc/ci_lab_perfids.h
+Copying /home/vagrant/workspace/qb50-cfe/apps/to_lab/fsw/mission_inc/to_lab_perfids.h
+Copying /home/vagrant/workspace/qb50-cfe/apps/sch_lab/fsw/mission_inc/sch_lab_perfids.h
+
+>>> [PRE-BUILD] COPYING HEADER FILES FROM <APP>/PLATFORM_INC <<<
+
+Copying /home/vagrant/workspace/qb50-cfe/apps/sample_app/fsw/platform_inc/sample_app_msgids.h
+Copying /home/vagrant/workspace/qb50-cfe/apps/su/fsw/platform_inc/su_app_msgids.h
+Copying /home/vagrant/workspace/qb50-cfe/apps/tester/fsw/platform_inc/tester_msgids.h
+Copying /home/vagrant/workspace/qb50-cfe/apps/ci_lab/fsw/platform_inc/ci_lab_msgids.h
+Copying /home/vagrant/workspace/qb50-cfe/apps/to_lab/fsw/platform_inc/to_lab_msgids.h
+Copying /home/vagrant/workspace/qb50-cfe/apps/to_lab/fsw/platform_inc/to_lab_sub_table.h
+Copying /home/vagrant/workspace/qb50-cfe/apps/sch_lab/fsw/platform_inc/sch_lab_sched_tab.h
+
+>>> [PRE-BUILD] CREATING <APP> BUILD DIRECTORY <<<
+
+Creating dir ./sample_lib
+Creating dir ./sample_app
+Creating dir ./su
+Creating dir ./tester
+Creating dir ./ci_lab
+Creating dir ./to_lab
+Creating dir ./sch_lab
+
+>>> [PRE-BUILD] COPYING MAKEFILES FROM <APP>/FOR_BUILD <<<
+
+Copying <CFS_APP_SRC>/sample_lib/fsw/for_build/* to ./sample_lib
+Copying <CFS_APP_SRC>/sample_app/fsw/for_build/* to ./sample_app
+Copying <CFS_APP_SRC>/su/fsw/for_build/* to ./su
+Copying <CFS_APP_SRC>/tester/fsw/for_build/* to ./tester
+Copying <CFS_APP_SRC>/ci_lab/fsw/for_build/* to ./ci_lab
+Copying <CFS_APP_SRC>/to_lab/fsw/for_build/* to ./to_lab
+Copying <CFS_APP_SRC>/sch_lab/fsw/for_build/* to ./sch_lab
+
+>>> [PRE-BUILD] CREATE TOOL BUILD DIRECTORIES <<<
+Creating dir elf2cfetbl
+Copying <CFE_TOOLS>/elf2cfetbl/for_build/Makefile to elf2cfetbl
+
+>>> [TOOL] BUILD elf2cfetbl TOOL <<<
+
+make -C elf2cfetbl 
+make[2]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/elf2cfetbl'
+gcc -D__ix86__ -D_ix86_ -D_LINUX_OS_ -DHWARCH=x86 -Dx86 -Dlinux -DX86PC -DBUILD= -D_REENTRANT -D _EMBED_   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/tbl -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../cfe/tools/elf2cfetbl -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/pc-linux/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../inc -m32 -g -o elf2cfetbl \
+            /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c: In function ‘ProcessCmdLineOptions’:
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:710:25: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘uint32’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:798:25: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘uint32’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c: In function ‘OpenSrcFile’:
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1004:5: warning: format ‘%X’ expects argument of type ‘unsigned int’, but argument 3 has type ‘time_t’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c: In function ‘GetElfHeader’:
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1192:5: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long unsigned int’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c: In function ‘GetSectionHeader’:
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1227:9: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘int32’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1235:9: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘int32’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1243:9: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘int32’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1273:17: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘int32’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1361:9: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long unsigned int’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c: In function ‘GetSymbol’:
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1389:9: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘int32’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1397:9: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘int32’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1403:5: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘long int’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1430:5: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long unsigned int’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c: In function ‘GetTblDefInfo’:
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1596:13: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘uint32’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1596:13: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘uint32’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c: In function ‘LocateAndReadUserObject’:
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1619:9: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘int32’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1647:70: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘int32’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1647:70: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘char *’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1655:9: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘int32’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1655:9: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘int32’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1670:9: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat]
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/../../../tools/elf2cfetbl/elf2cfetbl.c:1707:28: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘uint32’ [-Wformat]
+make[2]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/elf2cfetbl'
+
+>>> DONE! <<<
+
+make[1]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2'
+make[1]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2'
+
+>>> [ENVS] MAKEFILE ENVIRONMENT VARIABLES <<<
+
+MISSION = CFE_TST
+THE_APPS = sample_lib sample_app su tester ci_lab to_lab sch_lab
+THE_TBLS = 
+
+CFS_MISSION = /home/vagrant/workspace/qb50-cfe
+CFS_MISSION_INC = /home/vagrant/workspace/qb50-cfe/build/mission_inc
+CFS_APP_SRC = /home/vagrant/workspace/qb50-cfe/apps
+CFE_FSW = /home/vagrant/workspace/qb50-cfe/cfe/fsw
+CFE_CORE_SRC = /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src
+CFE_CORE_PLATFORM_INC_SRC = cpu1
+CFE_TOOLS = /home/vagrant/workspace/qb50-cfe/cfe/tools
+CFE_PSP_SRC = /home/vagrant/workspace/qb50-cfe/psp/fsw
+OSAL = /home/vagrant/workspace/qb50-cfe/osal
+OSAL_SRC = /home/vagrant/workspace/qb50-cfe/osal/src/os
+
+BUILD_PATH = .
+CFS_EXE = ./exe
+CFS_PROM = ./exe/cf
+CFS_PROM_APPS = ./exe/cf/apps
+CFS_RAM = ./exe/ram
+
+>>> [BUILD] BUILD CFE <<<
+
+make -C cfe
+make[2]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe'
+make -C osal 
+make[3]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/osal'
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/osal/src/os/posix -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o osapi.o /home/vagrant/workspace/qb50-cfe/osal/src/os/posix/osapi.c
+/home/vagrant/workspace/qb50-cfe/osal/src/os/posix/osapi.c: In function 'OS_TaskCreate':
+/home/vagrant/workspace/qb50-cfe/osal/src/os/posix/osapi.c:647:34: warning: passing argument 3 of 'pthread_create' from incompatible pointer type [-Wincompatible-pointer-types]
+                                  function_pointer,
+                                  ^
+In file included from /home/vagrant/workspace/qb50-cfe/osal/src/os/posix/osapi.c:125:0:
+/home/vagrant/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/pthread.h:233:12: note: expected 'void * (*)(void *)' but argument is of type 'osal_task_entry {aka void (*)(void)}'
+ extern int pthread_create (pthread_t *__restrict __newthread,
+            ^
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/osal/src/os/posix -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o osfileapi.o /home/vagrant/workspace/qb50-cfe/osal/src/os/posix/osfileapi.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/osal/src/os/posix -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o osfilesys.o /home/vagrant/workspace/qb50-cfe/osal/src/os/posix/osfilesys.c
+/home/vagrant/workspace/qb50-cfe/osal/src/os/posix/osfilesys.c: In function 'OS_fsBlocksFree':
+/home/vagrant/workspace/qb50-cfe/osal/src/os/posix/osfilesys.c:410:19: warning: variable 'NameStatus' set but not used [-Wunused-but-set-variable]
+    int32          NameStatus;
+                   ^
+/home/vagrant/workspace/qb50-cfe/osal/src/os/posix/osfilesys.c: In function 'OS_fsBytesFree':
+/home/vagrant/workspace/qb50-cfe/osal/src/os/posix/osfilesys.c:455:20: warning: variable 'NameStatus' set but not used [-Wunused-but-set-variable]
+    int32           NameStatus;
+                    ^
+/home/vagrant/workspace/qb50-cfe/osal/src/os/posix/osfilesys.c: In function 'OS_TranslatePath':
+/home/vagrant/workspace/qb50-cfe/osal/src/os/posix/osfilesys.c:575:10: warning: variable 'FilenameLen' set but not used [-Wunused-but-set-variable]
+     int  FilenameLen;
+          ^
+/home/vagrant/workspace/qb50-cfe/osal/src/os/posix/osfilesys.c:574:10: warning: variable 'DeviceLen' set but not used [-Wunused-but-set-variable]
+     int  DeviceLen;
+          ^
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/osal/src/os/posix -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o osnetwork.o /home/vagrant/workspace/qb50-cfe/osal/src/os/posix/osnetwork.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/osal/src/os/posix -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o osloader.o /home/vagrant/workspace/qb50-cfe/osal/src/os/posix/osloader.c
+/home/vagrant/workspace/qb50-cfe/osal/src/os/posix/osloader.c: In function 'OS_ModuleUnload':
+/home/vagrant/workspace/qb50-cfe/osal/src/os/posix/osloader.c:304:16: warning: variable 'ReturnCode' set but not used [-Wunused-but-set-variable]
+    int         ReturnCode;
+                ^
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/osal/src/os/posix -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o ostimer.o /home/vagrant/workspace/qb50-cfe/osal/src/os/posix/ostimer.c
+arm-unknown-linux-gnueabi-ld -o osal.o -r osapi.o osfileapi.o  osfilesys.o  osnetwork.o osloader.o ostimer.o
+make[3]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/osal'
+make -C psp 
+make[3]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/psp'
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_psp_start.o /home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_start.c
+/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_start.c: In function 'main':
+/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_start.c:270:19: warning: passing argument 2 of 'signal' from incompatible pointer type [-Wincompatible-pointer-types]
+    signal(SIGINT, CFE_PSP_SigintHandler);
+                   ^
+In file included from /home/vagrant/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/sys/wait.h:29:0,
+                 from /home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_start.c:30:
+/home/vagrant/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/signal.h:102:23: note: expected '__sighandler_t {aka void (*)(int)}' but argument is of type 'void (*)(void)'
+ extern __sighandler_t signal (int __sig, __sighandler_t __handler)
+                       ^
+/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_start.c: In function 'CFE_PSP_DeleteOSResources':
+/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_start.c:463:20: warning: variable 'ReturnCode' set but not used [-Wunused-but-set-variable]
+    int32           ReturnCode;
+                    ^
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_psp_support.o /home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_support.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_psp_ssr.o /home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_ssr.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_psp_voltab.o /home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_voltab.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_psp_memtab.o /home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_memtab.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_psp_timer.o /home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_timer.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_psp_watchdog.o /home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_watchdog.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_psp_memory.o /home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_memory.c
+/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_memory.c: In function 'CFE_PSP_GetResetArea':
+/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_memory.c:430:59: warning: argument to 'sizeof' in 'memcpy' call is the same expression as the destination; did you mean to dereference it? [-Wsizeof-pointer-memaccess]
+       memcpy(PtrToResetArea,&(CFE_PSP_ResetAreaPtr),sizeof(PtrToResetArea));
+                                                           ^
+/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_memory.c: In function 'CFE_PSP_GetUserReservedArea':
+/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_memory.c:555:65: warning: argument to 'sizeof' in 'memcpy' call is the same expression as the destination; did you mean to dereference it? [-Wsizeof-pointer-memaccess]
+       memcpy(PtrToUserArea,&(CFE_PSP_UserReservedAreaPtr),sizeof(PtrToUserArea));
+                                                                 ^
+/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_memory.c: In function 'CFE_PSP_GetCFETextSegmentInfo':
+/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_memory.c:761:45: warning: argument to 'sizeof' in 'memcpy' call is the same expression as the destination; did you mean to dereference it? [-Wsizeof-pointer-memaccess]
+       memcpy(PtrToCFESegment,&Address,sizeof(PtrToCFESegment));
+                                             ^
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_psp_exception.o /home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/src/cfe_psp_exception.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_psp_ram.o /home/vagrant/workspace/qb50-cfe/psp/fsw/shared/cfe_psp_ram.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_psp_eeprom.o /home/vagrant/workspace/qb50-cfe/psp/fsw/shared/cfe_psp_eeprom.c
+/home/vagrant/workspace/qb50-cfe/psp/fsw/shared/cfe_psp_eeprom.c: In function 'CFE_PSP_EepromWrite16':
+/home/vagrant/workspace/qb50-cfe/psp/fsw/shared/cfe_psp_eeprom.c:165:11: warning: format '%X' expects argument of type 'unsigned int', but argument 2 has type 'uint32 {aka long unsigned int}' [-Wformat=]
+    printf("Temp: Write32 = %08X\n",write32);
+           ^
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_psp_port.o /home/vagrant/workspace/qb50-cfe/psp/fsw/shared/cfe_psp_port.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_psp_memrange.o /home/vagrant/workspace/qb50-cfe/psp/fsw/shared/cfe_psp_memrange.c
+/home/vagrant/workspace/qb50-cfe/psp/fsw/shared/cfe_psp_memrange.c: In function 'CFE_PSP_MemValidateRange':
+/home/vagrant/workspace/qb50-cfe/psp/fsw/shared/cfe_psp_memrange.c:65:11: warning: variable 'RangeIsValid' set but not used [-Wunused-but-set-variable]
+    uint32 RangeIsValid = FALSE;
+           ^
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_psp_memutils.o /home/vagrant/workspace/qb50-cfe/psp/fsw/shared/cfe_psp_memutils.c
+arm-unknown-linux-gnueabi-ld -o psp.o -r cfe_psp_start.o cfe_psp_support.o cfe_psp_ssr.o cfe_psp_voltab.o cfe_psp_memtab.o cfe_psp_timer.o cfe_psp_watchdog.o cfe_psp_memory.o cfe_psp_exception.o cfe_psp_ram.o cfe_psp_eeprom.o cfe_psp_port.o cfe_psp_memrange.o cfe_psp_memutils.o
+make[3]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/psp'
+make -C es 
+make[3]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/es'
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_es_start.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es/cfe_es_start.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_es_api.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es/cfe_es_api.c
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es/cfe_es_api.c: In function 'CFE_ES_ResetCFE':
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es/cfe_es_api.c:202:11: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+     int32 status;
+           ^
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es/cfe_es_api.c: In function 'CFE_ES_CalculateCRC':
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es/cfe_es_api.c:1470:12: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+     int32  Status;
+            ^
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_es_objtab.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es/cfe_es_objtab.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_es_apps.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es/cfe_es_apps.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_esmempool.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es/cfe_esmempool.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_es_perf.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es/cfe_es_perf.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_es_shell.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es/cfe_es_shell.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_es_cds_mempool.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es/cfe_es_cds_mempool.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_es_cds.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es/cfe_es_cds.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_es_erlog.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es/cfe_es_erlog.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_es_task.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es/cfe_es_task.c
+arm-unknown-linux-gnueabi-ld -o es.o -r cfe_es_start.o cfe_es_api.o cfe_es_objtab.o cfe_es_apps.o cfe_esmempool.o cfe_es_perf.o cfe_es_shell.o cfe_es_cds_mempool.o cfe_es_cds.o cfe_es_erlog.o cfe_es_task.o
+make[3]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/es'
+make -C sb 
+make[3]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/sb'
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/sb -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_sb_task.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/sb/cfe_sb_task.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/sb -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_sb_api.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/sb/cfe_sb_api.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/sb -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_sb_priv.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/sb/cfe_sb_priv.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/sb -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_sb_init.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/sb/cfe_sb_init.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/sb -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_sb_buf.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/sb/cfe_sb_buf.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/sb -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_sb_util.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/sb/cfe_sb_util.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/sb -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o ccsds.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/sb/ccsds.c
+arm-unknown-linux-gnueabi-ld -o sb.o -r cfe_sb_task.o cfe_sb_api.o cfe_sb_priv.o cfe_sb_init.o cfe_sb_buf.o cfe_sb_util.o ccsds.o
+make[3]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/sb'
+make -C evs 
+make[3]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/evs'
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/evs -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_evs.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/evs/cfe_evs.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/evs -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_evs_task.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/evs/cfe_evs_task.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/evs -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_evs_log.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/evs/cfe_evs_log.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/evs -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_evs_utils.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/evs/cfe_evs_utils.c
+arm-unknown-linux-gnueabi-ld -o evs.o -r cfe_evs.o cfe_evs_task.o cfe_evs_log.o cfe_evs_utils.o
+make[3]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/evs'
+make -C tbl 
+make[3]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/tbl'
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/tbl -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_tbl_internal.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/tbl/cfe_tbl_internal.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/tbl -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_tbl_api.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/tbl/cfe_tbl_api.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/tbl -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_tbl_task.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/tbl/cfe_tbl_task.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/tbl -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_tbl_task_cmds.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/tbl/cfe_tbl_task_cmds.c
+arm-unknown-linux-gnueabi-ld -o tbl.o -r cfe_tbl_internal.o cfe_tbl_api.o cfe_tbl_task.o cfe_tbl_task_cmds.o
+make[3]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/tbl'
+make -C time 
+make[3]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/time'
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/time -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_time_task.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/time/cfe_time_task.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/time -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_time_api.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/time/cfe_time_api.c
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/time/cfe_time_api.c: In function 'CFE_TIME_MET2SCTime':
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/time/cfe_time_api.c:168:24: warning: variable 'UTCTime' set but not used [-Wunused-but-set-variable]
+     CFE_TIME_SysTime_t UTCTime;
+                        ^
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/time -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_time_utils.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/time/cfe_time_utils.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/time -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/es -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_time_tone.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/time/cfe_time_tone.c
+arm-unknown-linux-gnueabi-ld -o time.o -r cfe_time_task.o cfe_time_api.o cfe_time_utils.o cfe_time_tone.o
+make[3]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/time'
+make -C fs 
+make[3]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/fs'
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/fs -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_fs_priv.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/fs/cfe_fs_priv.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/fs -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_fs_api.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/fs/cfe_fs_api.c
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/fs -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o cfe_fs_decompress.o /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/fs/cfe_fs_decompress.c
+arm-unknown-linux-gnueabi-ld -o fs.o -r cfe_fs_priv.o cfe_fs_api.o cfe_fs_decompress.o
+make[3]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/fs'
+make -C link 
+make[3]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/link'
+arm-unknown-linux-gnueabi-gcc  -o core-linux.bin ../psp/psp.o ../osal/osal.o ../es/es.o ../sb/sb.o ../time/time.o ../evs/evs.o ../fs/fs.o  ../tbl/tbl.o -Wl,-export-dynamic -lm -lpthread -ldl -lrt
+make[3]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/link'
+make[2]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe'
+
+>>> [BUILD] BUILD APPS <<<
+
+make[2]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/sample_lib'
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/apps/inc -I/home/vagrant/workspace/qb50-cfe/apps/sample_lib/fsw/src -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../cfe/inc -I../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o sample_lib.o /home/vagrant/workspace/qb50-cfe/apps/sample_lib/fsw/src/sample_lib.c
+arm-unknown-linux-gnueabi-gcc -shared -o sample_lib.so sample_lib.o 
+make[2]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/sample_lib'
+/bin/sh: 3: test: sample_lib: unexpected operator
+make[2]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/sample_app'
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/apps/inc -I/home/vagrant/workspace/qb50-cfe/apps/sample_app/fsw/src -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../cfe/inc -I../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o sample_app.o /home/vagrant/workspace/qb50-cfe/apps/sample_app/fsw/src/sample_app.c
+arm-unknown-linux-gnueabi-gcc -shared -o sample_app.so sample_app.o 
+make[2]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/sample_app'
+/bin/sh: 3: test: sample_app: unexpected operator
+make[2]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/su'
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/apps/inc -I/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../cfe/inc -I../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o su_app.o /home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c: In function 'SU_AppMain':
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c:91:66: error: expected ')' before ';' token
+                 printf("msg id is %x\n",CFE_SB_GetMsgId(SUMsgPtr););
+                                                                  ^
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c: At top level:
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c:190:7: error: conflicting types for 'Process_Cmd'
+ int32 Process_Cmd(CFE_SB_MsgPtr_t *msg){
+       ^
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c:32:7: note: previous declaration of 'Process_Cmd' was here
+ int32 Process_Cmd(CFE_SB_MsgPtr_t msg);
+       ^
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c: In function 'Process_Cmd':
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c:194:33: warning: passing argument 1 of 'CFE_SB_GetMsgId' from incompatible pointer type [-Wincompatible-pointer-types]
+     MessageID = CFE_SB_GetMsgId(msg);
+                                 ^
+In file included from /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc/cfe_evs_msg.h:72:0,
+                 from /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc/cfe_evs.h:78,
+                 from /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc/cfe.h:63,
+                 from /home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.h:2,
+                 from /home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c:2:
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc/cfe_sb.h:831:16: note: expected 'CFE_SB_MsgPtr_t {aka struct <anonymous> *}' but argument is of type 'CFE_SB_Msg_t ** {aka struct <anonymous> **}'
+ CFE_SB_MsgId_t CFE_SB_GetMsgId(CFE_SB_MsgPtr_t MsgPtr);
+                ^
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c:210:45: warning: passing argument 1 of 'CFE_SB_GetCmdCode' from incompatible pointer type [-Wincompatible-pointer-types]
+             CommandCode = CFE_SB_GetCmdCode(msg);
+                                             ^
+In file included from /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc/cfe_evs_msg.h:72:0,
+                 from /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc/cfe_evs.h:78,
+                 from /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc/cfe.h:63,
+                 from /home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.h:2,
+                 from /home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c:2:
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc/cfe_sb.h:1054:8: note: expected 'CFE_SB_MsgPtr_t {aka struct <anonymous> *}' but argument is of type 'CFE_SB_Msg_t ** {aka struct <anonymous> **}'
+ uint16 CFE_SB_GetCmdCode(CFE_SB_MsgPtr_t MsgPtr);
+        ^
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c: In function 'script_handler':
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c:248:11: warning: variable 'script_fd' set but not used [-Wunused-but-set-variable]
+     int32 script_fd;
+           ^
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c: At top level:
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c:261:7: warning: function declaration isn't a prototype [-Wstrict-prototypes]
+ int32 error_handler(){
+       ^
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c:265:7: warning: function declaration isn't a prototype [-Wstrict-prototypes]
+ int32 command_handler(){
+       ^
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c:269:7: warning: function declaration isn't a prototype [-Wstrict-prototypes]
+ int32 response_handler(){
+       ^
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c: In function 'script_handler':
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c:259:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c: In function 'error_handler':
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c:263:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c: In function 'command_handler':
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c:267:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c: In function 'response_handler':
+/home/vagrant/workspace/qb50-cfe/apps/su/fsw/src/su_app.c:271:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make[2]: *** [su_app.o] Error 1
+make[2]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/su'
+/bin/sh: 3: test: su: unexpected operator
+make[2]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/tester'
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/apps/inc -I/home/vagrant/workspace/qb50-cfe/apps/tester/fsw/src -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../cfe/inc -I../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o tester.o /home/vagrant/workspace/qb50-cfe/apps/tester/fsw/src/tester.c
+/home/vagrant/workspace/qb50-cfe/apps/tester/fsw/src/tester.c: In function 'TESTER_SendCommand':
+/home/vagrant/workspace/qb50-cfe/apps/tester/fsw/src/tester.c:141:21: warning: passing argument 1 of 'CFE_SB_SetMsgId' from incompatible pointer type [-Wincompatible-pointer-types]
+     CFE_SB_SetMsgId((CFE_SB_MsgPtr_t *)&test_cmd,msgid);
+                     ^
+In file included from /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc/cfe_evs_msg.h:72:0,
+                 from /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc/cfe_evs.h:78,
+                 from /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc/cfe.h:63,
+                 from /home/vagrant/workspace/qb50-cfe/apps/tester/fsw/src/tester.h:2,
+                 from /home/vagrant/workspace/qb50-cfe/apps/tester/fsw/src/tester.c:6:
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc/cfe_sb.h:855:6: note: expected 'CFE_SB_MsgPtr_t {aka struct <anonymous> *}' but argument is of type 'CFE_SB_Msg_t ** {aka struct <anonymous> **}'
+ void CFE_SB_SetMsgId(CFE_SB_MsgPtr_t MsgPtr,
+      ^
+/home/vagrant/workspace/qb50-cfe/apps/tester/fsw/src/tester.c:147:11: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'uint16 * {aka short unsigned int *}' [-Wformat=]
+     scanf("%d",&cmd_code);
+           ^
+/home/vagrant/workspace/qb50-cfe/apps/tester/fsw/src/tester.c:152:35: warning: passing argument 1 of 'CFE_SB_GetMsgId' from incompatible pointer type [-Wincompatible-pointer-types]
+     printf("%x\n",CFE_SB_GetMsgId((CFE_SB_MsgPtr_t *)&test_cmd));  
+                                   ^
+In file included from /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc/cfe_evs_msg.h:72:0,
+                 from /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc/cfe_evs.h:78,
+                 from /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc/cfe.h:63,
+                 from /home/vagrant/workspace/qb50-cfe/apps/tester/fsw/src/tester.h:2,
+                 from /home/vagrant/workspace/qb50-cfe/apps/tester/fsw/src/tester.c:6:
+/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc/cfe_sb.h:831:16: note: expected 'CFE_SB_MsgPtr_t {aka struct <anonymous> *}' but argument is of type 'CFE_SB_Msg_t ** {aka struct <anonymous> **}'
+ CFE_SB_MsgId_t CFE_SB_GetMsgId(CFE_SB_MsgPtr_t MsgPtr);
+                ^
+arm-unknown-linux-gnueabi-gcc -shared -o tester.so tester.o 
+make[2]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/tester'
+/bin/sh: 3: test: tester: unexpected operator
+make[2]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/ci_lab'
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/apps/inc -I/home/vagrant/workspace/qb50-cfe/apps/ci_lab/fsw/src -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../cfe/inc -I../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o ci_lab_app.o /home/vagrant/workspace/qb50-cfe/apps/ci_lab/fsw/src/ci_lab_app.c
+/home/vagrant/workspace/qb50-cfe/apps/ci_lab/fsw/src/ci_lab_app.c: In function 'CI_ReadUpLink':
+/home/vagrant/workspace/qb50-cfe/apps/ci_lab/fsw/src/ci_lab_app.c:765:65: warning: pointer targets in passing argument 6 of 'recvfrom' differ in signedness [-Wpointer-sign]
+                          (struct sockaddr *) &CI_SocketAddress, &addr_len);
+                                                                 ^
+In file included from /home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc/network_includes.h:77:0,
+                 from /home/vagrant/workspace/qb50-cfe/apps/ci_lab/fsw/src/ci_lab_app.h:29,
+                 from /home/vagrant/workspace/qb50-cfe/apps/ci_lab/fsw/src/ci_lab_app.c:32:
+/home/vagrant/x-tools/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/include/sys/socket.h:174:16: note: expected 'socklen_t * restrict {aka unsigned int * restrict}' but argument is of type 'int *'
+ extern ssize_t recvfrom (int __fd, void *__restrict __buf, size_t __n,
+                ^
+arm-unknown-linux-gnueabi-gcc -shared -o ci_lab.so ci_lab_app.o 
+make[2]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/ci_lab'
+/bin/sh: 3: test: ci_lab: unexpected operator
+make[2]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/to_lab'
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/apps/inc -I/home/vagrant/workspace/qb50-cfe/apps/to_lab/fsw/src -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../cfe/inc -I../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o to_lab_app.o /home/vagrant/workspace/qb50-cfe/apps/to_lab/fsw/src/to_lab_app.c
+arm-unknown-linux-gnueabi-gcc -shared -o to_lab.so to_lab_app.o 
+make[2]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/to_lab'
+/bin/sh: 3: test: to_lab: unexpected operator
+make[2]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/sch_lab'
+arm-unknown-linux-gnueabi-gcc  -I/home/vagrant/workspace/qb50-cfe/osal/src/os/inc -I/home/vagrant/workspace/qb50-cfe/cfe/fsw/cfe-core/src/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/inc -I/home/vagrant/workspace/qb50-cfe/psp/fsw/ls2-linux/inc -I/home/vagrant/workspace/qb50-cfe/apps/inc -I/home/vagrant/workspace/qb50-cfe/apps/sch_lab/fsw/src -I/home/vagrant/workspace/qb50-cfe/build/mission_inc -I../cfe/inc -I../inc   -D_EL -DENDIAN=_EL -DSOFTWARE_LITTLE_BIT_ORDER -Dposix -D_LINUX_OS_ -DBUILD= -D_REENTRANT -D _EMBED_   -Wall -Wstrict-prototypes -g -O0 -DOS_DEBUG_LEVEL=3 -c -o sch_lab_app.o /home/vagrant/workspace/qb50-cfe/apps/sch_lab/fsw/src/sch_lab_app.c
+/home/vagrant/workspace/qb50-cfe/apps/sch_lab/fsw/src/sch_lab_app.c: In function 'SCH_Lab_AppMain':
+/home/vagrant/workspace/qb50-cfe/apps/sch_lab/fsw/src/sch_lab_app.c:58:22: warning: variable 'taskId' set but not used [-Wunused-but-set-variable]
+     uint32           taskId;
+                      ^
+arm-unknown-linux-gnueabi-gcc -shared -o sch_lab.so sch_lab_app.o 
+make[2]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/sch_lab'
+/bin/sh: 3: test: sch_lab: unexpected operator
+
+>>> [BUILD] BUILD APP TABLES <<<
+
+
+>>> [POST-BUILD] INSTALL CORE <<<
+
+make -C cfe install
+make[2]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe'
+make -C link install
+make[3]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/link'
+cp core-linux.bin ../../exe
+make[3]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe/link'
+make[2]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/cfe'
+
+>>> [POST-BUILD] INSTALL APPS <<<
+
+make[2]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/sample_lib'
+cp sample_lib.so ../exe
+make[2]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/sample_lib'
+/bin/sh: 3: test: sample_lib: unexpected operator
+make[2]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/sample_app'
+cp sample_app.so ../exe
+make[2]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/sample_app'
+/bin/sh: 3: test: sample_app: unexpected operator
+make[2]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/su'
+cp su.so ../exe
+cp: cannot stat `su.so': No such file or directory
+make[2]: *** [install] Error 1
+make[2]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/su'
+/bin/sh: 3: test: su: unexpected operator
+make[2]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/tester'
+cp tester.so ../exe
+make[2]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/tester'
+/bin/sh: 3: test: tester: unexpected operator
+make[2]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/ci_lab'
+cp ci_lab.so ../exe
+make[2]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/ci_lab'
+/bin/sh: 3: test: ci_lab: unexpected operator
+make[2]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/to_lab'
+cp to_lab.so ../exe
+make[2]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/to_lab'
+/bin/sh: 3: test: to_lab: unexpected operator
+make[2]: Entering directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/sch_lab'
+cp sch_lab.so ../exe
+make[2]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2/sch_lab'
+/bin/sh: 3: test: sch_lab: unexpected operator
+
+>>> [POST-BUILD] INSTALL APP TABLES <<<
+
+
+>>> [POST-BUILD] COPY BUILT FILES TO <CFS_PROM_APPS> <<<
+ >> Create Directories <<
+mkdir -p ./exe/cf
+mkdir -p ./exe/cf/apps
+mkdir -p ./exe/cf/log
+mkdir -p ./exe/cf/upload
+mkdir -p ./exe/cf/download
+mkdir -p ./exe/ram
+
+ >> Change Permissions <<
+chmod 775 ./exe/*.bin 
+chmod 644 ./exe/*.so 
+chmod 644 ./exe/*.tbl
+chmod: cannot access `./exe/*.tbl': No such file or directory
+make[1]: [cfs_copy_installs] Error 1 (ignored)
+chmod 644 ./exe/*.scr
+
+ >> Copy Files <<
+cp -f ./exe/*.so ./exe/cf/apps
+cp -f ./exe/*.tbl ./exe/cf/apps
+cp: cannot stat `./exe/*.tbl': No such file or directory
+make[1]: [cfs_copy_installs] Error 1 (ignored)
+
+cp -f ./exe/cfe_es_startup.scr ./exe/cf/apps
+
+>>> DONE! <<<
+
+make[1]: Leaving directory `/home/vagrant/workspace/qb50-cfe/build/cpu2'
+removed directory: `bin'
+`build/cpu2/exe' -> `bin'
+removed `build/cpu2/cfe/cfe-config.mak'
+removed `build/cpu2/cfe/debug-opts.mak'
+removed `build/cpu2/cfe/detail_doxy'
+removed `build/cpu2/cfe/es/cfe_esmempool.o'
+removed `build/cpu2/cfe/es/cfe_es_api.o'
+removed `build/cpu2/cfe/es/cfe_es_apps.o'
+removed `build/cpu2/cfe/es/cfe_es_cds.o'
+removed `build/cpu2/cfe/es/cfe_es_cds_mempool.o'
+removed `build/cpu2/cfe/es/cfe_es_erlog.o'
+removed `build/cpu2/cfe/es/cfe_es_objtab.o'
+removed `build/cpu2/cfe/es/cfe_es_perf.o'
+removed `build/cpu2/cfe/es/cfe_es_shell.o'
+removed `build/cpu2/cfe/es/cfe_es_start.o'
+removed `build/cpu2/cfe/es/cfe_es_task.o'
+removed `build/cpu2/cfe/es/es.o'
+removed `build/cpu2/cfe/es/Makefile'
+removed directory: `build/cpu2/cfe/es'
+removed `build/cpu2/cfe/evs/cfe_evs.o'
+removed `build/cpu2/cfe/evs/cfe_evs_log.o'
+removed `build/cpu2/cfe/evs/cfe_evs_task.o'
+removed `build/cpu2/cfe/evs/cfe_evs_utils.o'
+removed `build/cpu2/cfe/evs/evs.o'
+removed `build/cpu2/cfe/evs/Makefile'
+removed directory: `build/cpu2/cfe/evs'
+removed `build/cpu2/cfe/fs/cfe_fs_api.o'
+removed `build/cpu2/cfe/fs/cfe_fs_decompress.o'
+removed `build/cpu2/cfe/fs/cfe_fs_priv.o'
+removed `build/cpu2/cfe/fs/fs.o'
+removed `build/cpu2/cfe/fs/Makefile'
+removed directory: `build/cpu2/cfe/fs'
+removed `build/cpu2/cfe/link/core-linux.bin'
+removed `build/cpu2/cfe/link/Makefile'
+removed directory: `build/cpu2/cfe/link'
+removed `build/cpu2/cfe/Makefile'
+removed `build/cpu2/cfe/osal/Makefile'
+removed `build/cpu2/cfe/osal/osal.o'
+removed `build/cpu2/cfe/osal/osapi.o'
+removed `build/cpu2/cfe/osal/osfileapi.o'
+removed `build/cpu2/cfe/osal/osfilesys.o'
+removed `build/cpu2/cfe/osal/osloader.o'
+removed `build/cpu2/cfe/osal/osnetwork.o'
+removed `build/cpu2/cfe/osal/ostimer.o'
+removed directory: `build/cpu2/cfe/osal'
+removed `build/cpu2/cfe/psp/cfe_psp_eeprom.o'
+removed `build/cpu2/cfe/psp/cfe_psp_exception.o'
+removed `build/cpu2/cfe/psp/cfe_psp_memory.o'
+removed `build/cpu2/cfe/psp/cfe_psp_memrange.o'
+removed `build/cpu2/cfe/psp/cfe_psp_memtab.o'
+removed `build/cpu2/cfe/psp/cfe_psp_memutils.o'
+removed `build/cpu2/cfe/psp/cfe_psp_port.o'
+removed `build/cpu2/cfe/psp/cfe_psp_ram.o'
+removed `build/cpu2/cfe/psp/cfe_psp_ssr.o'
+removed `build/cpu2/cfe/psp/cfe_psp_start.o'
+removed `build/cpu2/cfe/psp/cfe_psp_support.o'
+removed `build/cpu2/cfe/psp/cfe_psp_timer.o'
+removed `build/cpu2/cfe/psp/cfe_psp_voltab.o'
+removed `build/cpu2/cfe/psp/cfe_psp_watchdog.o'
+removed `build/cpu2/cfe/psp/Makefile'
+removed `build/cpu2/cfe/psp/psp.o'
+removed directory: `build/cpu2/cfe/psp'
+removed `build/cpu2/cfe/sb/ccsds.o'
+removed `build/cpu2/cfe/sb/cfe_sb_api.o'
+removed `build/cpu2/cfe/sb/cfe_sb_buf.o'
+removed `build/cpu2/cfe/sb/cfe_sb_init.o'
+removed `build/cpu2/cfe/sb/cfe_sb_priv.o'
+removed `build/cpu2/cfe/sb/cfe_sb_task.o'
+removed `build/cpu2/cfe/sb/cfe_sb_util.o'
+removed `build/cpu2/cfe/sb/Makefile'
+removed `build/cpu2/cfe/sb/sb.o'
+removed directory: `build/cpu2/cfe/sb'
+removed `build/cpu2/cfe/tbl/cfe_tbl_api.o'
+removed `build/cpu2/cfe/tbl/cfe_tbl_internal.o'
+removed `build/cpu2/cfe/tbl/cfe_tbl_task.o'
+removed `build/cpu2/cfe/tbl/cfe_tbl_task_cmds.o'
+removed `build/cpu2/cfe/tbl/Makefile'
+removed `build/cpu2/cfe/tbl/tbl.o'
+removed directory: `build/cpu2/cfe/tbl'
+removed `build/cpu2/cfe/time/cfe_time_api.o'
+removed `build/cpu2/cfe/time/cfe_time_task.o'
+removed `build/cpu2/cfe/time/cfe_time_tone.o'
+removed `build/cpu2/cfe/time/cfe_time_utils.o'
+removed `build/cpu2/cfe/time/Makefile'
+removed `build/cpu2/cfe/time/time.o'
+removed directory: `build/cpu2/cfe/time'
+removed `build/cpu2/cfe/unit-test/es/Makefile'
+removed directory: `build/cpu2/cfe/unit-test/es'
+removed `build/cpu2/cfe/unit-test/evs/Makefile'
+removed directory: `build/cpu2/cfe/unit-test/evs'
+removed `build/cpu2/cfe/unit-test/fs/Makefile'
+removed directory: `build/cpu2/cfe/unit-test/fs'
+removed `build/cpu2/cfe/unit-test/Makefile'
+removed `build/cpu2/cfe/unit-test/sb/Makefile'
+removed directory: `build/cpu2/cfe/unit-test/sb'
+removed `build/cpu2/cfe/unit-test/tbl/Makefile'
+removed directory: `build/cpu2/cfe/unit-test/tbl'
+removed `build/cpu2/cfe/unit-test/time/Makefile'
+removed directory: `build/cpu2/cfe/unit-test/time'
+removed directory: `build/cpu2/cfe/unit-test'
+removed `build/cpu2/cfe/user_doxy'
+removed directory: `build/cpu2/cfe'
+removed `build/cpu2/ci_lab/ci_lab.so'
+removed `build/cpu2/ci_lab/ci_lab_app.o'
+removed `build/cpu2/ci_lab/Makefile'
+removed directory: `build/cpu2/ci_lab'
+removed `build/cpu2/detail_doxy'
+removed `build/cpu2/docs/dox_src/detailed_design/cpu2.dox'
+removed directory: `build/cpu2/docs/dox_src/detailed_design'
+removed `build/cpu2/docs/dox_src/get_date.sh'
+removed `build/cpu2/docs/dox_src/mnem_maps/.gitkeep'
+removed directory: `build/cpu2/docs/dox_src/mnem_maps'
+removed `build/cpu2/docs/dox_src/users_guide/cpu2.dox'
+removed directory: `build/cpu2/docs/dox_src/users_guide'
+removed directory: `build/cpu2/docs/dox_src'
+removed directory: `build/cpu2/docs'
+removed `build/cpu2/elf2cfetbl/elf2cfetbl'
+removed `build/cpu2/elf2cfetbl/Makefile'
+removed directory: `build/cpu2/elf2cfetbl'
+removed `build/cpu2/inc/.gitkeep'
+removed `build/cpu2/inc/cfe_msgids.h'
+removed `build/cpu2/inc/cfe_platform_cfg.h'
+removed `build/cpu2/inc/ci_lab_msgids.h'
+removed `build/cpu2/inc/osconfig.h'
+removed `build/cpu2/inc/sample_app_msgids.h'
+removed `build/cpu2/inc/sample_lib.h'
+removed `build/cpu2/inc/sch_lab_sched_tab.h'
+removed `build/cpu2/inc/su_app_msgids.h'
+removed `build/cpu2/inc/tester_msgids.h'
+removed `build/cpu2/inc/to_lab_msgids.h'
+removed `build/cpu2/inc/to_lab_sub_table.h'
+removed directory: `build/cpu2/inc'
+removed `build/cpu2/Makefile'
+removed `build/cpu2/make_cfe_ut'
+removed `build/cpu2/sample_app/Makefile'
+removed `build/cpu2/sample_app/sample_app.o'
+removed `build/cpu2/sample_app/sample_app.so'
+removed directory: `build/cpu2/sample_app'
+removed `build/cpu2/sample_lib/Makefile'
+removed `build/cpu2/sample_lib/sample_lib.o'
+removed `build/cpu2/sample_lib/sample_lib.so'
+removed directory: `build/cpu2/sample_lib'
+removed `build/cpu2/sch_lab/Makefile'
+removed `build/cpu2/sch_lab/sch_lab.so'
+removed `build/cpu2/sch_lab/sch_lab_app.o'
+removed directory: `build/cpu2/sch_lab'
+removed `build/cpu2/su/Makefile'
+removed directory: `build/cpu2/su'
+removed `build/cpu2/tester/Makefile'
+removed `build/cpu2/tester/tester.o'
+removed `build/cpu2/tester/tester.so'
+removed directory: `build/cpu2/tester'
+removed `build/cpu2/to_lab/Makefile'
+removed `build/cpu2/to_lab/to_lab.so'
+removed `build/cpu2/to_lab/to_lab_app.o'
+removed directory: `build/cpu2/to_lab'
+removed `build/cpu2/user_doxy'
+removed directory: `build/cpu2'
+removed `build/mission_inc/.gitkeep'
+removed `build/mission_inc/cfe_mission_cfg.h'
+removed `build/mission_inc/ci_lab_perfids.h'
+removed `build/mission_inc/sample_app_perfids.h'
+removed `build/mission_inc/sch_lab_perfids.h'
+removed `build/mission_inc/su_app_perfids.h'
+removed `build/mission_inc/tester_perfids.h'
+removed `build/mission_inc/to_lab_perfids.h'
+removed directory: `build/mission_inc'
+`build/cpu2~' -> `build/cpu2'
+`build/mission_inc~' -> `build/mission_inc'
+echo "Meow~"
+Meow~

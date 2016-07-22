@@ -42,6 +42,8 @@ void Tester_Main( void )
     int32  status;
     uint32 RunStatus = CFE_ES_APP_RUN;
 
+    int32 test_counter = 0;
+
     CFE_ES_PerfLogEntry(TESTER_APP_PERF_ID);
 
     TESTER_AppInit();
@@ -57,10 +59,14 @@ void Tester_Main( void )
         status = CFE_SB_RcvMsg(&TESTERMsgPtr, TESTER_CommandPipe, 500);
         
         CFE_ES_PerfLogEntry(TESTER_APP_PERF_ID);
-
-        if (status == CFE_SUCCESS)
+        
+        if (status == CFE_SB_TIME_OUT)
         {
-            TESTER_SendCommand();
+            //printf("perf_entry\n");
+            if(test_counter<5){
+                TESTER_SendCommand();
+                test_counter++;
+            }
         }
 
     }
@@ -79,7 +85,7 @@ void TESTER_AppInit(void)
     /*
     ** Register the app with Executive services
     */
-    CFE_ES_RegisterApp() ;
+    CFE_ES_RegisterApp();
 
     /*
     ** Register the events
@@ -113,27 +119,39 @@ void TESTER_AppInit(void)
 
 void TESTER_SendCommand()
 {
-    uint8          App_index = 0;
+    int          App_index = 0;
     CFE_SB_MsgId_t  msgid;
     uint16          cmd_code;
 
 
     printf("Pls choose the app u want to command:\n");
     printf("1. SU\n");
-    App_index = getc(stdin);
-    printf("%c\n",App_index);
+    scanf("%d",&App_index);
+    //printf("%d\n",App_index);
     switch(App_index){
-        case 1: msgid = 0x1992;
-        default: printf("Not implemented :( \n");
+        case 1: 
+                msgid = 0x1990;
+                printf("msgid set to %x \n", msgid);
+                break;
+        default: 
+                printf("Not implemented :( \n");
+                break;
     }
     CFE_SB_InitMsg((CFE_SB_Msg_t*)&test_cmd, msgid, (uint16)(sizeof test_cmd), TRUE);
-    //CFE_SB_SetMsgId(MsgPtr,msgid);
+    CFE_SB_SetMsgId((CFE_SB_MsgPtr_t *)&test_cmd,msgid);
 
-    printf("Pls input cmd code:");
-    scanf("%x",cmd_code);
+    printf("Pls input cmd code:\n");
+    printf("0. ping\n");
+    printf("1. init\n");
+    printf("2. oink\n");
+    scanf("%d",&cmd_code);
+    //printf("%d\n",cmd_code);
 
     CFE_SB_SetCmdCode((CFE_SB_Msg_t*)&test_cmd,cmd_code);
+    printf("We will now print out the Message ID.\n");
+    printf("%x\n",CFE_SB_GetMsgId((CFE_SB_MsgPtr_t *)&test_cmd));  
     CFE_SB_SendMsg((CFE_SB_Msg_t*)&test_cmd);
+    printf("Msg sent,meow~.\n");
 
 
 
