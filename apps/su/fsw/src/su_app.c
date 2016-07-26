@@ -7,7 +7,7 @@
 #include "su_app_version.h"
 
 
-su_hk_tlm_t    SU_HkTelemetryPkt;
+su_hk_tlm_t        SU_HkTelemetryPkt;
 CFE_SB_PipeId_t    SU_CommandPipe;
 CFE_SB_MsgPtr_t    SUMsgPtr;
 
@@ -36,7 +36,7 @@ void Read_temp(void);
 
 void SU_AppMain(void) {
 
-    //int32 test_counter = 0;
+    int32 test_counter = 0;
 
     int32  status;
     uint32 RunStatus = CFE_ES_APP_RUN;
@@ -47,9 +47,6 @@ void SU_AppMain(void) {
 
     status = SU_AppInit();
 
-    //sb testing code
-    
-
     /*
     ** SU Runloop
     */
@@ -58,38 +55,13 @@ void SU_AppMain(void) {
 
         CFE_ES_PerfLogExit(SU_APP_PERF_ID);
 
-
-
-        //serial function testing
-        /*if(test_counter<5){
-            printf("\nSending the Ping Instruction\n");
-            resp_flag = FALSE;
-            write(fd, ping, sizeof ping);
-            sleep(1);
-			
-            while(resp_flag != TRUE){
-                sleep(1);
-            }
-    
-            printf("\nSending the Init Instruction\n");
-            resp_flag = FALSE;
-            write(fd, init, sizeof init);
-            sleep(1); 
-
-            test_counter++;
-        }*/
-
-
         //software bus funtion testing
         
         status = CFE_SB_RcvMsg(&SUMsgPtr, SU_CommandPipe, 500);
-        //printf("Meow~\n");
         switch(status){
             case CFE_SUCCESS:
             b=t=p=n=0;
             if(!s){   
-                printf("msg id is %x\n",CFE_SB_GetMsgId(SUMsgPtr));
-                printf("%d\nWe got this,meow~\n",CFE_SB_GetCmdCode(SUMsgPtr));
                 Process_Cmd(SUMsgPtr);
                 s = 1;
             }
@@ -131,6 +103,27 @@ void SU_AppMain(void) {
         
         
         CFE_ES_PerfLogEntry(SU_APP_PERF_ID);
+
+
+        /*if(test_counter<1){
+            printf("\nSending the Ping Instruction\n");
+            resp_flag = FALSE;
+            write(fd, ping, sizeof ping);
+            sleep(1);
+            Send(ping);
+            
+            while(resp_flag != TRUE){
+                sleep(1);
+            }
+    
+            printf("\nSending the Init Instruction\n");
+            resp_flag = FALSE;
+            write(fd, init, sizeof init);
+            sleep(1); 
+            Send(init);
+
+            test_counter++;
+        }*/
           
     }
 
@@ -164,7 +157,6 @@ int32 SU_AppInit(void){
     */
     CFE_SB_CreatePipe(&SU_CommandPipe, SU_PIPE_DEPTH,"SU_CMD_PIPE");
     CFE_SB_Subscribe(SU_APP_CMD_MID, SU_CommandPipe);     //su_app_msgids.h
-    printf("SU_APP_CMD_MID : %x\n",SU_APP_CMD_MID);
     CFE_SB_Subscribe(SU_APP_SEND_HK_MID, SU_CommandPipe); //su_app_msgids.h
 
     //SU_ResetCounters();
@@ -192,7 +184,6 @@ int32 Process_Cmd(CFE_SB_MsgPtr_t *msg){
     uint16 CommandCode;
 
     MessageID = CFE_SB_GetMsgId(msg);
-    printf("msg id is %x\n", MessageID );
     switch (MessageID)
     {
         /*
@@ -208,20 +199,31 @@ int32 Process_Cmd(CFE_SB_MsgPtr_t *msg){
         case SU_APP_CMD_MID:
 
             CommandCode = CFE_SB_GetCmdCode(msg);
-            printf("cmd code is %x\n", CommandCode );
+            //printf("cmd code is :%d\n", CommandCode);
             switch (CommandCode)
             {
                 case PING:
+                    printf("executing ping\n");
                     Send(ping);
+                    
                     break;
 
                 case INIT:
+                    printf("executing init\n");
                     Send(init);
+
                     break; 
 
                 case OINK:
+                    printf("executing oink\n");
                     Send(ping);
+
+                    while(resp_flag != TRUE){
+                        sleep(1);
+                    }
                     Send(init);
+                    break;
+
                 default:
                     CFE_EVS_SendEvent(SU_COMMAND_ERR_EID , CFE_EVS_ERROR,
                      "Invalid ground command code: ID = 0x%X, CC = %d",

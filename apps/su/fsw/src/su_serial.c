@@ -80,10 +80,9 @@ int32 Set_Attribute(void)
 
 
 int32 Send(uint8 *cmd){
-    printf("\nSending the %02x Instruction\n", cmd);
+    resp_flag = FALSE;
     write(fd, cmd, sizeof cmd);
-    sleep(1);
-    //tcflush(fd, TCIFLUSH);
+    sleep(1); 
     return 0; // error indicator need further edit
 }
 

@@ -30,7 +30,7 @@ all ::
 	rm -vrf build/$(BUILD_CPU) build/mission_inc; \
 	mv -v build/$(BUILD_CPU)~ build/$(BUILD_CPU); \
 	mv -v build/mission_inc~ build/mission_inc;"
-	echo "Meow~"
+
 
 clean ::
 	$(MAKE) -C build clean

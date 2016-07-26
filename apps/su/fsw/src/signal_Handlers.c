@@ -10,8 +10,8 @@ void signal_handler_IO (int signo, siginfo_t *siginfo, void *ucontext) { // shou
     if(siginfo-> si_code == POLL_IN){
 		if(j == 0)//pick the first response only 
 		{
-			printf("Caught the signal.\n");
-			printf("The signal is %d\n", signo);
+			//printf("Caught the signal.\n");
+			//printf("The signal is %d\n", signo);
 			if (signo == 29) {
 				printf("The signal that was caught was a SIGIO signal.\n");
 			} else {
@@ -35,8 +35,8 @@ void signal_handler_IO (int signo, siginfo_t *siginfo, void *ucontext) { // shou
     else
     {
 		    j = 0;
-        tcflush(fd, TCIFLUSH);
         sleep(1);
+        tcflush(fd, TCIFLUSH);  
     }
     
        

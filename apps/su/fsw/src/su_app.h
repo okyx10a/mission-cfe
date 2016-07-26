@@ -20,10 +20,6 @@
 
 #define SU_PIPE_DEPTH                     32
 
- //testing purposes only
-#define PING                              0
-#define INIT                              1
-#define OINK                              2
 
 
 //script access options
