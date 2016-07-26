@@ -62,7 +62,6 @@ void Tester_Main( void )
         
         if (status == CFE_SB_TIME_OUT)
         {
-            //printf("perf_entry\n");
             if(test_counter<5){
                 TESTER_SendCommand();
                 test_counter++;
@@ -119,15 +118,16 @@ void TESTER_AppInit(void)
 
 void TESTER_SendCommand()
 {
-    int          App_index = 0;
-    CFE_SB_MsgId_t  msgid;
-    uint16          cmd_code;
+    int                  App_index = 0;
+    int                  inpbuf;
+    int32                status;
+    CFE_SB_MsgId_t       msgid;
+    uint16               cmd_code;
 
 
     printf("Pls choose the app u want to command:\n");
     printf("1. SU\n");
     scanf("%d",&App_index);
-    //printf("%d\n",App_index);
     switch(App_index){
         case 1: 
                 msgid = 0x1990;
@@ -144,16 +144,14 @@ void TESTER_SendCommand()
     printf("0. ping\n");
     printf("1. init\n");
     printf("2. oink\n");
-    scanf("%d",&cmd_code);
-    //printf("%d\n",cmd_code);
-
-    CFE_SB_SetCmdCode((CFE_SB_Msg_t*)&test_cmd,cmd_code);
-    printf("We will now print out the Message ID.\n");
-    printf("%x\n",CFE_SB_GetMsgId((CFE_SB_MsgPtr_t *)&test_cmd));  
+    scanf("%d",&inpbuf);
+    cmd_code = inpbuf;  
+    printf("Meow~  :3\n");
+    status = CFE_SB_SetCmdCode((CFE_SB_Msg_t*)&test_cmd,cmd_code);
+    if(status == CFE_SUCCESS){
+        printf("cmd code is: %d\n", cmd_code);
+        printf("test side command code is:%d\n",CFE_SB_GetCmdCode((CFE_SB_Msg_t*)&test_cmd));
+    }
     CFE_SB_SendMsg((CFE_SB_Msg_t*)&test_cmd);
-    printf("Msg sent,meow~.\n");
-
-
-
 }
 
