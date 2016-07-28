@@ -7,9 +7,8 @@
 #include "su_app_version.h"
 
 
-su_hk_tlm_t        SU_HkTelemetryPkt;
-CFE_SB_PipeId_t    SU_CommandPipe;
-CFE_SB_MsgPtr_t    SUMsgPtr;
+su_app_data         app_data;
+const uint8[3]      SCRIPT_END = {0x7E 0xFF 0x01 0xFE};
 
 static CFE_EVS_BinFilter_t  SU_EventFilters[] =
     {  /* Event ID    mask */
@@ -57,12 +56,12 @@ void SU_AppMain(void) {
 
         //software bus funtion testing
         
-        status = CFE_SB_RcvMsg(&SUMsgPtr, SU_CommandPipe, 500);
+        status = CFE_SB_RcvMsg(&app_data.SUMsgPtr, app_data.SU_CommandPipe, 500);
         switch(status){
             case CFE_SUCCESS:
             b=t=p=n=0;
             if(!s){   
-                Process_Cmd(SUMsgPtr);
+                Process_Msg(app_data.SUMsgPtr);
                 s = 1;
             }
             break;
@@ -103,32 +102,11 @@ void SU_AppMain(void) {
         
         
         CFE_ES_PerfLogEntry(SU_APP_PERF_ID);
-
-
-        /*if(test_counter<1){
-            printf("\nSending the Ping Instruction\n");
-            resp_flag = FALSE;
-            write(fd, ping, sizeof ping);
-            sleep(1);
-            Send(ping);
-            
-            while(resp_flag != TRUE){
-                sleep(1);
-            }
-    
-            printf("\nSending the Init Instruction\n");
-            resp_flag = FALSE;
-            write(fd, init, sizeof init);
-            sleep(1); 
-            Send(init);
-
-            test_counter++;
-        }*/
           
     }
 
 
-    close(fd);
+    close(app_data.fd);
     printf("\nPort closed\n");
 
     RunStatus = CFE_ES_APP_EXIT;
@@ -140,7 +118,7 @@ int32 SU_AppInit(void){
 
     int32 status = 0;
 
-    resp_flag = FALSE;
+    app_data.resp_flag = FALSE;
     CFE_ES_RegisterApp();
 
     /*
@@ -155,17 +133,17 @@ int32 SU_AppInit(void){
     ** Create the Software Bus command pipe and subscribe to housekeeping
     **  messages
     */
-    CFE_SB_CreatePipe(&SU_CommandPipe, SU_PIPE_DEPTH,"SU_CMD_PIPE");
-    CFE_SB_Subscribe(SU_APP_CMD_MID, SU_CommandPipe);     //su_app_msgids.h
-    CFE_SB_Subscribe(SU_APP_SEND_HK_MID, SU_CommandPipe); //su_app_msgids.h
+    CFE_SB_CreatePipe(&app_data.SU_CommandPipe, SU_PIPE_DEPTH,"SU_CMD_PIPE");
+    CFE_SB_Subscribe(SU_APP_CMD_MID, app_data.SU_CommandPipe);     
+    CFE_SB_Subscribe(SU_APP_SEND_HK_MID, app_data.SU_CommandPipe); 
 
     //SU_ResetCounters();
 
-    CFE_SB_InitMsg(&SU_HkTelemetryPkt,        //su_app_msg.h
-                   SU_APP_HK_TLM_MID,         //su_app_msgids.h
-                   SU_APP_HK_TLM_LNGTH, TRUE);//su_app_msg.h
+    CFE_SB_InitMsg(&app_data.SU_HkTelemetryPkt,       
+                   SU_APP_HK_TLM_MID,         
+                   SU_APP_HK_TLM_LNGTH, TRUE);
 
-    fd = Open_Port();
+    app_data.fd = Open_Port();
     Set_Attribute();
 
     CFE_EVS_SendEvent (SU_STARTUP_INF_EID, CFE_EVS_INFORMATION,
@@ -179,7 +157,7 @@ int32 SU_AppInit(void){
 }
 
 
-int32 Process_Cmd(CFE_SB_MsgPtr_t *msg){
+int32 Process_Msg(CFE_SB_MsgPtr_t *msg){
     CFE_SB_MsgId_t MessageID;
     uint16 CommandCode;
 
@@ -199,8 +177,8 @@ int32 Process_Cmd(CFE_SB_MsgPtr_t *msg){
         case SU_APP_CMD_MID:
 
             CommandCode = CFE_SB_GetCmdCode(msg);
-            //printf("cmd code is :%d\n", CommandCode);
-            switch (CommandCode)
+            
+            /*switch (CommandCode)
             {
                 case PING:
                     printf("executing ping\n");
@@ -218,9 +196,10 @@ int32 Process_Cmd(CFE_SB_MsgPtr_t *msg){
                     printf("executing oink\n");
                     Send(ping);
 
-                    while(resp_flag != TRUE){
+                    while(app_data.resp_flag != TRUE){
                         sleep(1);
                     }
+
                     Send(init);
                     break;
 
@@ -229,7 +208,29 @@ int32 Process_Cmd(CFE_SB_MsgPtr_t *msg){
                      "Invalid ground command code: ID = 0x%X, CC = %d",
                                       MessageID, CommandCode);
                     break;
+            }*/
+
+            switch (CommandCode)
+            {
+                case SET_ACTIVE:
+                    printf("executing SET_ACTIVE\n");
+
+                    script_handler("../scripts/script1",SET_ACTIVE);
+
+                    break;
+
+                case UPDATE:
+                    printf("executing UPDATE\n");
+                    break; 
+
+
+                default:
+                    CFE_EVS_SendEvent(SU_COMMAND_ERR_EID , CFE_EVS_ERROR,
+                     "Invalid ground command code: ID = 0x%X, CC = %d",
+                                      MessageID, CommandCode);
+                    break;
             }
+
             break;
 
         default:
@@ -247,10 +248,71 @@ int32 Process_Cmd(CFE_SB_MsgPtr_t *msg){
 /*Write, execute a given script*/
 
 int32 script_handler(char  *scriptname,  int  access){
-    int32 script_fd;
+    int32       script_fd,status;
+    uint8       *buffer,*release;
+    uint8       cmd_len;
+    uint8       i;
     if(access == SET_ACTIVE)
     {
 	    script_fd = open(scriptname, O_RDONLY);
+
+        //Load in the whole script
+        if(read(script_fd,&app_data.LEN,sizeof(app_data.LEN))==0){
+            release = malloc((app_data.LEN+1)*sizeof(uint8));
+            buffer = release;
+            read(script_fd,buffer,(app_data.LEN+1)*sizeof(uint8));
+        }
+
+
+        //Fill in local data fields
+
+        buffer++;
+
+        //STARTTIME
+        memcpy(&app_data.STARTTIME,buffer,sizeof(app_data.STARTTIME));
+
+        buffer = buffer + sizeof(app_data.STARTTIME)/sizeof(uint8);
+
+        //REPEATTIME
+        memcpy(&app_data.REPEATTIME,buffer,sizeof(app_data.REPEATTIME));
+
+        buffer = buffer + sizeof(app_data.REPEATTIME)/sizeof(uint8);
+
+        //CMD_CNT
+        memcpy(&app_data.CMD_CNT,buffer,sizeof(app_data.CMD_CNT));
+
+        buffer = buffer + sizeof(app_data.CMD_CNT)/sizeof(uint8);
+
+        //Cmds and delays
+        for(i = 0, i<CMD_CNT, i++){
+
+            if(buffer[0]!=0x7E){
+                CFE_EVS_SendEvent(SU_SCRIPT_ERR_EID, CFE_EVS_ERROR,
+                                    "Invalid script encoding.\n"); 
+            }
+            else if(memcmp(buffer,&SCRIPT_END,sizeof(SCRIPT_END))){
+                memcpy(app_data.CMD[i],buffer,sizeof(SCRIPT_END));
+            }
+            else{
+                cmd_len = buffer[2];
+
+                memcpy(app_data.CMD[i],buffer,(cmd_len+4)*sizeof(uint8));
+
+                buffer = buffer + (cmd_len+4);
+
+
+                memcpy(app_data.DELAY[i], buffer, sizeof(*DELAY));
+
+                buffer = buffer + sizeof(*DELAY)/sizeof(uint8);  
+            }
+        }
+
+        status = command_handler();
+
+
+
+
+
 
     }
     else if(access == UPDATE)

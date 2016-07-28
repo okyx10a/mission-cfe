@@ -2,10 +2,17 @@
 #define _su_app_msg_h_
 
 //CommandCode
+
+//script access options
+#define  SET_ACTIVE                       0
+#define  UPDATE                           1
+
 //testing purposes only
 #define PING                              0
 #define INIT                              1
 #define OINK                              2
+
+
 
 typedef struct
 {

@@ -21,14 +21,25 @@
 #define SU_PIPE_DEPTH                     32
 
 
-
-//script access options
-#define  SET_ACTIVE                       0
-#define  UPDATE                           1
-
 /*Data*/
-uint32 fd;
-boolean resp_flag;
+typedef struct{
+    uint32              fd;
+    boolean             resp_flag;
+    su_script_t         active_script;
+    su_hk_tlm_t         SU_HkTelemetryPkt;
+    CFE_SB_PipeId_t     SU_CommandPipe;
+    CFE_SB_MsgPtr_t     SUMsgPtr;
+}su_app_data;
+
+typedef struct{
+    uint8               LEN;
+    uint8[4]            STARTTIME;
+    uint8[2]            REPEATTIME;
+    uint8               CMD_CNT;
+    uint8               **CMD;
+    uint8[2]            *DELAY;
+}su_script_t;
+
 
  /* Prototypes */
 
