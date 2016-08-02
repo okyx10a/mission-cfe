@@ -17,15 +17,15 @@
 int32 Open_Port(void)
 {
     //printf("\nOpening Serial Port %s", DEVICE);
-    if((fd = open(DEVICE, O_RDWR | O_NOCTTY | O_NONBLOCK )) == -1)
+    if((app_data.fd = open(DEVICE, O_RDWR | O_NOCTTY | O_NONBLOCK )) == -1)
     { 
         perror(DEVICE); 
         return -1; 
     }
     //open the device (com port) to be non-blocking (read will return immediately)
-    //printf("\nOpened port %s as %u\n", DEVICE, fd);
-    tcflush(fd, TCIFLUSH);
-    return fd;
+    //printf("\nOpened port %s as %u\n", DEVICE, app_data.fd);
+    tcflush(app_data.fd, TCIFLUSH);
+    return app_data.fd;
 }  
 
 int32 Set_Attribute(void)
@@ -48,11 +48,11 @@ int32 Set_Attribute(void)
     the user programs must set the FASYNC flag in the device by means of the F_SETFL fcntl command.
     http://www.makelinux.net/ldd3/chp-6-sect-4*/
 
-    if(fcntl(fd,F_SETOWN,getpid()) == -1) {perror(DEVICE);}
-    fcntl(fd, F_SETFL, FASYNC); 
-    // Set fd signals (needed for siginfo to be populated)
-    if(fcntl(fd,10,SIGIO) == -1) {perror(DEVICE);} //10 is the value of F_SETSIG
-    tcgetattr(fd, &oldtio); // save current port settings
+    if(fcntl(app_data.fd,F_SETOWN,getpid()) == -1) {perror(DEVICE);}
+    fcntl(app_data.fd, F_SETFL, FASYNC); 
+    // Set app_data.fd signals (needed for siginfo to be populated)
+    if(fcntl(app_data.fd,10,SIGIO) == -1) {perror(DEVICE);} //10 is the value of F_SETSIG
+    tcgetattr(app_data.fd, &oldtio); // save current port settings
 
     saseg.sa_sigaction = signal_handler_SEG;
     sigemptyset(&saseg.sa_mask); //saio.sa_mask = 0;
@@ -73,17 +73,16 @@ int32 Set_Attribute(void)
     newtio.c_lflag = 0; //ICANON does canonical input processing
     newtio.c_cc[VMIN] = 0; // Wait until x bytes read (blocks!)
     newtio.c_cc[VTIME] = 2; // Wait x * 0.1s for input (unblocks!)
-    tcsetattr(fd, TCSANOW, &newtio); 
+    tcsetattr(app_data.fd, TCSANOW, &newtio); 
 
     return 0; 
 }
 
 
 int32 Send(uint8 *cmd){
-    printf("\nSending the %02x Instruction\n", cmd);
-    write(fd, cmd, sizeof cmd);
-    sleep(1);
-    //tcflush(fd, TCIFLUSH);
+    app_data.resp_flag = FALSE;
+    write(app_data.fd, cmd, sizeof cmd);
+    sleep(1); 
     return 0; // error indicator need further edit
 }
 

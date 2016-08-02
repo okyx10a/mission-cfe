@@ -143,7 +143,7 @@ void TESTER_SendCommand()
     printf("Pls input cmd code:\n");
     printf("0. ping\n");
     printf("1. init\n");
-    printf("2. oink\n");
+    printf("2. oink(ping+init)\n");
     scanf("%d",&inpbuf);
     cmd_code = inpbuf;  
     printf("Meow~  :3\n");

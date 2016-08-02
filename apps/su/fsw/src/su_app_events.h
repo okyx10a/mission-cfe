@@ -9,5 +9,6 @@
 #define SU_COMMANDRST_INF_EID        4
 #define SU_INVALID_MSGID_ERR_EID     5 
 #define SU_LEN_ERR_EID               6 
+#define SU_SCRIPT_ERR_EID            7
 
 #endif

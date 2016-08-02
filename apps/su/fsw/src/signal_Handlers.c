@@ -10,8 +10,8 @@ void signal_handler_IO (int signo, siginfo_t *siginfo, void *ucontext) { // shou
     if(siginfo-> si_code == POLL_IN){
 		if(j == 0)//pick the first response only 
 		{
-			printf("Caught the signal.\n");
-			printf("The signal is %d\n", signo);
+			//printf("Caught the signal.\n");
+			//printf("The signal is %d\n", signo);
 			if (signo == 29) {
 				printf("The signal that was caught was a SIGIO signal.\n");
 			} else {
@@ -19,7 +19,7 @@ void signal_handler_IO (int signo, siginfo_t *siginfo, void *ucontext) { // shou
 			}
 			printf("The ID of the sending process is %d\n", siginfo->si_pid);
 			sleep(1);       
-			read(fd, resp, 5);
+			read(app_data.fd, resp, 5);
 			for(i = 0; i < 5; i++){
 				printf("%02x ", resp[i]);
 			}
@@ -27,7 +27,7 @@ void signal_handler_IO (int signo, siginfo_t *siginfo, void *ucontext) { // shou
 			/*
 			* Read the first 5 bytes of what FIPEX returns and do something about it. 
 			*/
-			resp_flag = TRUE;// a flag indicates a reply has been recieved, may be better ways to do it?
+			app_data.resp_flag = TRUE;// a flag indicates a reply has been recieved, may be better ways to do it?
 		}
 		j++;
 		
@@ -35,8 +35,8 @@ void signal_handler_IO (int signo, siginfo_t *siginfo, void *ucontext) { // shou
     else
     {
 		    j = 0;
-        tcflush(fd, TCIFLUSH);
         sleep(1);
+        tcflush(app_data.fd, TCIFLUSH);  
     }
     
        
@@ -49,7 +49,7 @@ void signal_handler_SEG (int signo, siginfo_t *siginfo, void *ucontext) {
 
 void signal_handler_INT (int signo, siginfo_t *siginfo, void *ucontext) { 
     printf("\nCaught a interrupt signal and overiding default action.\n");
-    close(fd);
+    close(app_data.fd);
     printf("Port closed\n");
     exit(2);
 }

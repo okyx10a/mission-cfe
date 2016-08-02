@@ -1,6 +1,8 @@
 #ifndef _tester_app_msg_h_
 #define _tester_app_msg_h_
 
+
+
 typedef struct
 {
    uint8    CmdHeader[CFE_SB_CMD_HDR_SIZE];
