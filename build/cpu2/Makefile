@@ -39,15 +39,17 @@
 #===============================================================================
 
 # List of apps/libs to include in the build
-THE_APPS := sample_lib sample_app su tester
+THE_APPS := sample_lib sample_app axtxrx tlm_io su tester 
 THE_APPS += ci_lab to_lab sch_lab
 # THE_APPS += cfs_lib
-# THE_APPS += cf cs ds fm hk hs lc md mm sc sch
+THE_APPS += sc
+#cf cs ds fm hk hs lc md mm sch
 export THE_APPS
 
 # List of apps that include tables for the build
 THE_TBLS := 
-#THE_TBLS += ds fm hk lc sc sch
+THE_TBLS += sc 
+#ds fm hk lc sch
 #THE_TBLS += cf hs 
 export THE_TBLS
 

@@ -11,6 +11,12 @@
 #include <fcntl.h>
 #include <sys/signal.h>
 #include <sys/types.h>
+/*Includes local headers*/
+#include "su_app_msg.h"
+#include "su_app_msgids.h"
+#include "su_app_perfids.h"
+#include "su_app_events.h"
+#include "su_app_version.h"
 
 /* Macros */
 #define BAUDRATE B115200
@@ -23,25 +29,31 @@
 
 /*Data*/
 typedef struct{
+    uint8               LEN;
+    uint8               STARTTIME[4];
+    uint8               REPEATTIME[2];
+    uint8               CMD_CNT;
+    uint8               **CMD;
+    uint8               *DELAY[2];
+}su_script_t;
+
+typedef struct{
     uint32              fd;
     boolean             resp_flag;
-    su_script_t         active_script;
+    su_script_t         su_script;
     su_hk_tlm_t         SU_HkTelemetryPkt;
     CFE_SB_PipeId_t     SU_CommandPipe;
     CFE_SB_MsgPtr_t     SUMsgPtr;
-}su_app_data;
+}su_app_data_t;
 
-typedef struct{
-    uint8               LEN;
-    uint8[4]            STARTTIME;
-    uint8[2]            REPEATTIME;
-    uint8               CMD_CNT;
-    uint8               **CMD;
-    uint8[2]            *DELAY;
-}su_script_t;
-
+su_app_data_t         app_data;
 
  /* Prototypes */
+int32 Process_Msg(CFE_SB_MsgPtr_t *msg);
+int32 script_handler(char  *scriptname,  int  access);
+int32 error_handler();
+int32 command_handler();
+int32 response_handler();
 
 /* Serial related functions */
 int32 Open_Port(void);

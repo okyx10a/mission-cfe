@@ -1,14 +1,11 @@
+
 /*Includes*/
 #include "su_app.h"
-#include "su_app_msgids.h"
-#include "su_app_perfids.h"
-#include "su_app_events.h"
-#include "su_app_msg.h"
-#include "su_app_version.h"
 
 
-su_app_data         app_data;
-const uint8[3]      SCRIPT_END = {0x7E 0xFF 0x01 0xFE};
+
+
+const uint8         SCRIPT_END[4] = {0x7E, 0xFF, 0x01, 0xFE};
 
 static CFE_EVS_BinFilter_t  SU_EventFilters[] =
     {  /* Event ID    mask */
@@ -30,7 +27,6 @@ int32 SU_AppInit(void);
 
 int32 Process_Cmd(CFE_SB_MsgPtr_t *msg);
 
-void Read_temp(void);
 
 
 void SU_AppMain(void) {
@@ -241,7 +237,7 @@ int32 Process_Msg(CFE_SB_MsgPtr_t *msg){
             break;
     }
 
-    return 0;
+    return CFE_SUCCESS;
 
 }
 
@@ -257,10 +253,10 @@ int32 script_handler(char  *scriptname,  int  access){
 	    script_fd = open(scriptname, O_RDONLY);
 
         //Load in the whole script
-        if(read(script_fd,&app_data.LEN,sizeof(app_data.LEN))==0){
-            release = malloc((app_data.LEN+1)*sizeof(uint8));
+        if(read(script_fd,&app_data.su_script.LEN,sizeof(app_data.su_script.LEN))==0){
+            release = malloc((app_data.su_script.LEN+1)*sizeof(uint8));
             buffer = release;
-            read(script_fd,buffer,(app_data.LEN+1)*sizeof(uint8));
+            read(script_fd,buffer,(app_data.su_script.LEN+1)*sizeof(uint8));
         }
 
 
@@ -269,41 +265,41 @@ int32 script_handler(char  *scriptname,  int  access){
         buffer++;
 
         //STARTTIME
-        memcpy(&app_data.STARTTIME,buffer,sizeof(app_data.STARTTIME));
+        memcpy(&app_data.su_script.STARTTIME,buffer,sizeof(app_data.su_script.STARTTIME));
 
-        buffer = buffer + sizeof(app_data.STARTTIME)/sizeof(uint8);
+        buffer = buffer + sizeof(app_data.su_script.STARTTIME)/sizeof(uint8);
 
         //REPEATTIME
-        memcpy(&app_data.REPEATTIME,buffer,sizeof(app_data.REPEATTIME));
+        memcpy(&app_data.su_script.REPEATTIME,buffer,sizeof(app_data.su_script.REPEATTIME));
 
-        buffer = buffer + sizeof(app_data.REPEATTIME)/sizeof(uint8);
+        buffer = buffer + sizeof(app_data.su_script.REPEATTIME)/sizeof(uint8);
 
         //CMD_CNT
-        memcpy(&app_data.CMD_CNT,buffer,sizeof(app_data.CMD_CNT));
+        memcpy(&app_data.su_script.CMD_CNT,buffer,sizeof(app_data.su_script.CMD_CNT));
 
-        buffer = buffer + sizeof(app_data.CMD_CNT)/sizeof(uint8);
+        buffer = buffer + sizeof(app_data.su_script.CMD_CNT)/sizeof(uint8);
 
         //Cmds and delays
-        for(i = 0, i<CMD_CNT, i++){
+        for(i = 0; i<app_data.su_script.CMD_CNT; i++){
 
             if(buffer[0]!=0x7E){
                 CFE_EVS_SendEvent(SU_SCRIPT_ERR_EID, CFE_EVS_ERROR,
                                     "Invalid script encoding.\n"); 
             }
             else if(memcmp(buffer,&SCRIPT_END,sizeof(SCRIPT_END))){
-                memcpy(app_data.CMD[i],buffer,sizeof(SCRIPT_END));
+                memcpy(app_data.su_script.CMD[i],buffer,sizeof(SCRIPT_END));
             }
             else{
                 cmd_len = buffer[2];
 
-                memcpy(app_data.CMD[i],buffer,(cmd_len+4)*sizeof(uint8));
+                memcpy(app_data.su_script.CMD[i],buffer,(cmd_len+4)*sizeof(uint8));
 
                 buffer = buffer + (cmd_len+4);
 
 
-                memcpy(app_data.DELAY[i], buffer, sizeof(*DELAY));
+                memcpy(app_data.su_script.DELAY[i], buffer, sizeof app_data.su_script.DELAY);
 
-                buffer = buffer + sizeof(*DELAY)/sizeof(uint8);  
+                buffer = buffer + sizeof app_data.su_script.DELAY/sizeof(uint8);  
             }
         }
 
@@ -319,7 +315,7 @@ int32 script_handler(char  *scriptname,  int  access){
     {
         script_fd = open(scriptname,O_WRONLY);
     }
-
+    return CFE_SUCCESS;
 }
 
 int32 error_handler(){
@@ -327,7 +323,12 @@ int32 error_handler(){
 }
 
 int32 command_handler(){
-
+    int i = 0;
+    do{
+        send(app_data.su_script.CMD[i]);
+        i++;
+    }while(app_data.su_script.CMD[i] != SCRIPT_END);
+    return CFE_SUCCESS;
 }
 
 int32 response_handler(){

@@ -141,9 +141,8 @@ void TESTER_SendCommand()
     CFE_SB_SetMsgId((CFE_SB_MsgPtr_t *)&test_cmd,msgid);
 
     printf("Pls input cmd code:\n");
-    printf("0. ping\n");
-    printf("1. init\n");
-    printf("2. oink(ping+init)\n");
+    printf("0. Set_Active\n");
+    printf("1. Update(not implemented)\n");
     scanf("%d",&inpbuf);
     cmd_code = inpbuf;  
     printf("Meow~  :3\n");
